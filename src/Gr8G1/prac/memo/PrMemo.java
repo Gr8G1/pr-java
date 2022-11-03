@@ -1,0 +1,72 @@
+package Gr8G1.prac.memo;
+
+import java.util.Date;
+
+public class PrMemo {
+  /*
+   * # Java Sepc: https://docs.oracle.com/javase/specs/jls/se13/html/index.html
+   */
+
+  /*
+   * # 이스케이프 시퀀스
+   *
+   * \a: 경고음
+   * \b: 백스페이스
+   * \t: 수평 탭
+   * \r: 복귀 (Carriage return)
+   * \n: 개행 (Line Feed)
+   * \v: 수직 탭 (프린트 전용)
+   * \f: 페이지 나누기(폼 피드) (프린트 전용)
+   * \\: \
+   * \ooo: 8진수 표기 (ASCII)
+   * \xhh: 16진수 표기 (ASCII)
+   * \xhhh: 16진수 표기(유니코드)
+   *
+   */
+
+  /*
+   * # 포맷 (개략)
+   *
+   * %n: 개행
+   * %b: 불리언
+   * %c: 문자
+   * %s: 문자열
+   * %d: 정수 (10진법 표기)
+   * %f: 실수
+   * %e: 지수
+   * %u: 부호 없는 정수
+   * %o: 8진수 (octal)
+   * %i: 10진수 (decimal)
+   * %x: 16진수 (hexadecimal)
+   * %t: 날짜/시간
+   * %%: % (프린트)
+   * \%: % (프린트)
+   *
+   * ! [%공간.표기개수]:개별 설정 가능
+   * ! '<' or '{n}$': 재사용 플래그
+   *
+   * ~ 참조: http://www.java2s.com/Tutorials/Java/Java_Format/index.htm
+   *
+   */
+
+  /*
+   * # 파일 권한 설정 (Unix 기반)
+   * ~ 참조: https://kb.iu.edu/d/abdb
+   */
+
+
+  public static void main(String[] args) {
+    System.out.printf("[%15s] %d%n", "ABC", 123456);
+    System.out.printf("[%-15s]%n", "ABC");
+
+    System.out.printf("[%d]%n", 123456);
+
+    System.out.printf("[%15.2f]%n", 1.23456);
+    System.out.printf("[%15.2f]%n", 12.3456);
+
+    Date date = new Date();
+
+    System.out.printf("%tF-%<tT%n", date);
+    System.out.printf("%tF-%1$tT%n", date);
+  }
+}
