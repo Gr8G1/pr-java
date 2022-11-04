@@ -6,30 +6,32 @@ public class PrAccessControl {
   /*
    * # 접근 제어자
    *            ---------------------  접근 여부  ---------------------
-   *            | 동일 클래스 | 하위 클래스 | 동일 패키지 | 외부 패키지(클래스) |
+   *            | 동일 클래스 | 동일 패키지 | 하위 클래스 | 외부 패키지(클래스) |
    * private    |     O    |     X    |     X     |        X        |
-   * (default)  |     O    |     X    |     O     |        X        |
+   * (default)  |     O    |     O    |     X     |        X        |
    * protected  |     O    |     O    |     O     |        X        |
    * public     |     O    |     O    |     O     |        O        |
    *            -----------------------------------------------------
    * * private: 동일 객체 내에서만 접근 허용
    * * default: 같은 패키지(폴더)에 있는 객체들만 접근을 허용
-   * * protected: 같은 패키지에 있는 객체와 *상속* 관계의 객체들만 허용
+   * * protected: 같은 패키지에 있는 객체와 하위(*상속*) 관계의 객체들만 허용
    * * public: 모든 접근 허용
    *
    * 그 외
    * static
    *  - 클래스가 인스턴스화되지 않아도 접근 가능하다.
+   *  - 메소드 내에서는 인스턴스 멤버들을 직접 사용할 수 없다.
    * static 변수
-   *  - 모든 인스턴스에 공통적으로 사용되는 클래스 변수가 된다. 클래스 변수는 인스턴스를 생성하지 않고 사용이 가능하다. 클래스가 메모리에 로딩될 때 생성된다.
+   *  - 모든 인스턴스에 공통적으로 사용되는 클래스 변수가 된다. (default 접근 여부와 동일)
+   *  - 클래스 변수는 인스턴스를 생성하지 않고 사용이 가능하다.
+   *  - 클래스가 메모리에 로딩될 때 생성된다.
    * static 메소드
    *  - 인스턴스를 생성하지 않고도 호출이 가능한 메소드가 된다.
-   * static
-   *  - 메소드 내에서는 인스턴스 멤버들을 직접 사용할 수 없다.
    * final
-   *   - 기존 클래스로부터 새로운 서브(확장) 클래스를 만들 수 없다.
+   *  - 기존 클래스로부터 새로운 서브(확장) 클래스를 만들 수 없다.
    * final 클래스
-   *   - 변경될 수 없는 클래스, 확장될 수 없는 클래스가 된다. final로 지정된 클래스는 다른 클래스의 조상이 될 수 없다.
+   *  - 변경될 수 없는 클래스, 확장될 수 없는 클래스가 된다.
+   *  - final로 지정된 클래스는 다른 클래스의 조상이 될 수 없다.
    * final 메소드
    *   - 변경될 수 없는 메소드, final로 지정된 메소드는 오버라이딩을 통해 재정의될 수 없다.
    * final 멤버변수 / final 지역변수
@@ -50,11 +52,13 @@ public class PrAccessControl {
    * strictfp
    *  - 부동소수(floating point) 계산의 특정한(restrict) 사항을 제어하는 데 사용된다.
    */
+  static String staticS = "Static String";
 
   private final String privateS = "Private String";
   String defaultS = "Default String";
   protected String protectedS = "protected String";
   public String publicS = "Public String";
+
 
   public PrAccessControl() {
     System.out.println("Init PrAccessControl Constructor");
@@ -67,5 +71,17 @@ public class PrAccessControl {
 
   public void PrPublicMethod(String[] args) {
     System.out.println("PrPublicMethod" + Arrays.toString(args));
+  }
+
+  public static void main(String[] args) {
+    System.out.println(staticS);
+  }
+}
+
+class SameLevel {
+  public static void main(String[] args) {
+    PrAccessControl pac = new PrAccessControl();
+
+    System.out.println(pac.defaultS);
   }
 }

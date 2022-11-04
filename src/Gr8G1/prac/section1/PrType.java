@@ -9,6 +9,11 @@ public class PrType {
   static double d = PrVariable.d;
 
   public static void main(String[] args) {
+    // ~ final
+    // 상수(고정값) 지정
+    // 변수명을 대문자로 표기 하는것이 관례이다.
+    final float PI = 3.14F;
+
     // ~ 암시/묵시적 타입 변환
     // 변환 가능 형태
     // (byte(1) => short(2)/char(2) => int(4) => long(8): 정수) => float(4) => double(8)

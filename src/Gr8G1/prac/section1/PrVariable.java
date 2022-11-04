@@ -1,7 +1,5 @@
 package Gr8G1.prac.section1;
 
-import java.sql.SQLOutput;
-
 public class PrVariable {
   // ~ 정수
   // 메모리: 1byte, 표현 범위: -128(-2^7) ~ 127(2^7-1)
