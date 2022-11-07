@@ -1,4 +1,4 @@
-package Gr8G1.prac.prior;
+package Gr8G1.prac.section1.oop.ac;
 
 import java.util.Arrays;
 
@@ -59,7 +59,6 @@ public class PrAccessControl {
   protected String protectedS = "protected String";
   public String publicS = "Public String";
 
-
   public PrAccessControl() {
     System.out.println("Init PrAccessControl Constructor");
     System.out.println(this.privateS);
@@ -78,7 +77,7 @@ public class PrAccessControl {
   }
 }
 
-class SameLevel {
+class SameLevelPackage {
   public static void main(String[] args) {
     PrAccessControl pac = new PrAccessControl();
 

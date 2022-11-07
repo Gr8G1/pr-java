@@ -1,6 +1,6 @@
-package Gr8G1.prac.prior.inside;
+package Gr8G1.prac.section1.oop.ac.inside;
 
-import Gr8G1.prac.prior.PrAccessControl;
+import Gr8G1.prac.section1.oop.ac.PrAccessControl;
 
 public class PrSPAc {
   public static void main(String[] args) {
@@ -12,6 +12,6 @@ public class PrSPAc {
 
     System.out.println("PrDPAc extends");
     // System.out.println(pac.defaultS); : -> Cannot be accessed from outside packag
-    // 패키지 상위에 존재하더라도 default값에 접근 불가하다. (동등한 레벨에 존재해야함).
+    // 계층 구조가 상위/하위로 존재한다(보여진다)하여도 default값에 접근 불가하다. (동등한 계층 레벨에 존재해야 접근 가능하다).
   }
 }
