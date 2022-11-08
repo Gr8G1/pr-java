@@ -41,12 +41,6 @@ public class PrInheritance {
    *  - ! 주의: 반드시 생성자의 첫 줄에 위치해야 한다.
    *  - ! 생성자 첫 줄에 super()가 없는 경우 컴파일러가 자동으로 super()를 삽입한다. 이때 상위클래스에 *기본생성자*가 없으면 에러가 발생한다.
    *
-   *  메소드 오버라이딩(Method Overriding)
-   *  - 상위 클래스로부터 상속받은 메서드와 동일한 이름의 메서드를 재정의하는 것.
-   *    - 메소드 오버라이딩 요구조건
-   *      1. 상위 클래스의 메소드의 선언부(메서드 이름, 매개변수, 반환타입)가 완전히 일치해야한다.
-   *      2. 상위 클래스의 메서드의 접근 제어자의 범위와 같거나 넓어야 한다.
-   *      3. 상위 클래스의 메서드보다 많이 선언할 수 없다.
    *
    */
 
@@ -120,7 +114,7 @@ class Seoul extends Korea { // Seoul -> Korea = 상속 관계
 
   public String greetings() { // 메소드 오버라이딩
     return "반가워요. :)";
-  } // 메소드 오버라이딩
+  }
   public String getGrammer() {
     return Arrays.toString(super.consonant) + " " + Arrays.toString(super.vowel);
   }
