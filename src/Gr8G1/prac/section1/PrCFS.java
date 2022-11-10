@@ -45,7 +45,7 @@ public class PrCFS {
      *       break;
      *   }
      *
-     * Enhanced switch -> java v14~
+     * Enhanced switch -> (JDK.14^)
      * > switch (변수) {
      *     case 변수값
      *         , (변수값) -> 실행 구문;
@@ -72,7 +72,7 @@ public class PrCFS {
      *     }
      *   }
      *
-     * Enhanced for -> java v5~
+     * Enhanced for -> (JDK.5^)
      *  > for (초기화식: 표현값) {
      *      실행 구문;
      *    }
