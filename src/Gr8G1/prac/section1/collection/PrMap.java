@@ -63,7 +63,7 @@ public class PrMap {
 
     Iterator<String> kit = hashtable.keySet().iterator();
     while (kit.hasNext()) {
-      System.out.println(kit.next().);
+      System.out.println(kit.next());
     }
   }
 }
