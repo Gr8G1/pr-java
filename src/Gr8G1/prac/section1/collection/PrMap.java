@@ -1,6 +1,8 @@
 package Gr8G1.prac.section1.collection;
 
 import java.util.*;
+import java.util.function.Function;
+import java.util.function.IntBinaryOperator;
 
 public class PrMap {
   /*
@@ -63,16 +65,22 @@ public class PrMap {
       System.out.println("keySet - Key: " +key + ", Value: " + value);
     }
 
+    Iterator<String> keyIt = keySet.iterator();
+    while (keyIt.hasNext()) {
+      System.out.println(keyIt.next());
+    }
+
     Set<Map.Entry<String, Integer>> entrySet = hashMap.entrySet();
     for (Map.Entry<String, Integer> entries: entrySet) {
       System.out.println(entries);
       System.out.println("entrySet - Key: " + entries.getKey() + ", Value: " + entries.getValue());
     }
 
-    for (Map.Entry<String, Integer> entries: hashMap.entrySet()) {
-      System.out.println(entries);
-      System.out.println("entrySet - Key: " + entries.getKey() + ", Value: " + entries.getValue());
+    Iterator<Map.Entry<String, Integer>> entryIt = entrySet.iterator();
+    while (entryIt.hasNext()) {
+      System.out.println(entryIt.next().getKey() + entryIt.next().getValue());
     }
+
 
     // ~ Hashtable
     Hashtable<String, Integer> hashtable = new Hashtable<>(); // Hashtable <- table *소문자* 주의
