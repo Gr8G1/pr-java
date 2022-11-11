@@ -24,6 +24,13 @@ public class PrString {
   static String str = "String";
 
   public static void main(String[] args) {
+    // ~ 문자열 순회
+    String str = "Apple";
+
+    for (Character c: str.toCharArray()) {
+      System.out.println(c);
+    }
+
     // ~ 문자열 다룰 수 있는 다양한 클래스들이 존재한다.
     // StringTokenizer
     StringTokenizer strTk = new StringTokenizer("New%String%Tokenizer", "%");

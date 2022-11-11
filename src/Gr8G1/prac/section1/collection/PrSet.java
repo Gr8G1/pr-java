@@ -1,6 +1,5 @@
 package Gr8G1.prac.section1.collection;
 
-import java.awt.print.Printable;
 import java.util.*;
 
 public class PrSet {
@@ -26,7 +25,8 @@ public class PrSet {
    */
 
   public static void main(String[] args) {
-    HashSet<String > hash = new HashSet<String>();
+    // ~ HashSet
+    HashSet<String > hash = new HashSet<>();
 
     hash.add("Java");
     hash.add("Java"); // 중복값 저장 불가
@@ -37,8 +37,9 @@ public class PrSet {
       System.out.println("HashSet: " + s); // 중복값 확인
     }
 
-    TreeSet<Integer> tree = new TreeSet<Integer>();
-    TreeSet<Integer> newTree = new TreeSet<Integer>();
+    // ~ TreeSet
+    TreeSet<Integer> tree = new TreeSet<>();
+    TreeSet<Integer> newTree = new TreeSet<>();
 
     tree.add(3);
     tree.add(5);

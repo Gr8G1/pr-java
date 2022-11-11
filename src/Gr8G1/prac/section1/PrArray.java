@@ -1,6 +1,6 @@
 package Gr8G1.prac.section1;
 
-import java.util.Arrays;
+import java.util.*;
 
 public class PrArray {
   /*
@@ -19,8 +19,10 @@ public class PrArray {
    *
    */
   public static void main(String[] args) {
-    // TODO: Arrays 내용 추가 및 정리
-    // TODO: stream 내용 추가 및 정리
+    Integer[] arr = {1, 2, 3, 4, 5}; // Java Array indexOf 미제공
+    ArrayList<Integer> newArr = new ArrayList<>(Arrays.asList(arr)); // ArrayList <-> List 변환 후 사용
+
+    System.out.println(newArr.indexOf(1));
 
     // Array.stream
     String[] strings = {"1", "2", "3"};

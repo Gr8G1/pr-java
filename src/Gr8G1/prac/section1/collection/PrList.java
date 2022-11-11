@@ -35,6 +35,7 @@ public class PrList {
    */
 
   public static void main(String[] args) {
+    // ~ List
     List<Integer> list = Arrays.asList(1, 2, 3, 4, 5); // 5의 저장 공간 선언 (한번 지정된 공간을 늘릴 수 없다.)
     // list.add(0, 5); // RuntimeError: UnsupportedOperationException -> 저장 공간을 늘릴 수 없다.
     list.set(0, 5); // OK
@@ -43,6 +44,7 @@ public class PrList {
       System.out.println("List: " + l);
     }
 
+    // ~ ArrayList
     ArrayList<Integer> a10List = new ArrayList<>(); // initialCapacity 없이 선언하면 10의 기본 저장 공간을 갖는다.
 
     while (a10List.size() < 10) {
@@ -58,6 +60,11 @@ public class PrList {
       System.out.println("Iterator loop: " + l);
     }
 
+    System.out.println(a10List);
+    a10List.clear();
+    System.out.println(a10List);
+
+    // ~ LinkedList
     LinkedList<Integer> lkList = new LinkedList<>();
 
     while (lkList.size() < 10) {

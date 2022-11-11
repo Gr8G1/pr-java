@@ -11,7 +11,7 @@ public class PrMap {
    *    > 저장된 객체를 Entry 객체라 칭하고, Entry 객체는 K(key), V(value)를 각각 Key 객체와 Value객체로 저장한다.
    *    > Map 인터페이스로 구현된 클래스: HashMap, TreeMap, LinkedHashMap ...
    *
-   * Map 인터페이void clear()	해당 맵의 모든 매칭을 제거함
+   * Map 인터페이스
    *  - 추가
    *    - V put(K key, V value): 전달된 키에 대응하는 값으로 특정 값을 매핑
    *  - 검색
@@ -22,6 +22,7 @@ public class PrMap {
    *    - Set<K> keySet(): 맵에 포함된 모든 키를 Set 객체로 반환
    *    - int size(): 매핑된 총 개수를 반환
    *  - 삭제
+   *    - void clear()	해당 맵의 모든 매칭을 제거함
    *    - V remove(Object key): 전달된 키에 대응하는 매핑을 제거
    *    - boolean remove(Object key, Object value): 특정 값에 대응하는 키의 매핑을 제거
    *  - 제어
@@ -31,10 +32,26 @@ public class PrMap {
    */
 
   public static void main(String[] args) {
+    // ~ HashMap
+    HashMap<Character, Integer> cHashMap = new HashMap<>();
+
+    for (Character c: "Banana".toCharArray()) {
+      /*
+       * ! Extract side effect
+       * ~: !cHashMap.containsKey(c) ? cHashMap.put(c, 1) : cHashMap.put(c, cHashMap.get(c) + 1);
+       *  ->
+       * ~: cHashMap.put(c, !cHashMap.containsKey(c) ? 1 : cHashMap.get(c) + 1);
+       */
+      if (!cHashMap.containsKey(c)) cHashMap.put(c, 1);
+      else cHashMap.put(c, cHashMap.get(c) + 1);
+    }
+
     HashMap<String, Integer> hashMap = new HashMap<>();
 
+    System.out.println(cHashMap);
+
     hashMap.put("Java", 100);
-    hashMap.put("Java", 100); // 중복키값 저장 불가
+    hashMap.put("Java", 300); // 중복키값 저장 불가
     hashMap.put("Javascript", 100);
 
     System.out.println("hashMap.size(): " + hashMap.size());
@@ -48,13 +65,16 @@ public class PrMap {
 
     Set<Map.Entry<String, Integer>> entrySet = hashMap.entrySet();
     for (Map.Entry<String, Integer> entries: entrySet) {
+      System.out.println(entries);
       System.out.println("entrySet - Key: " + entries.getKey() + ", Value: " + entries.getValue());
     }
 
     for (Map.Entry<String, Integer> entries: hashMap.entrySet()) {
       System.out.println(entries);
+      System.out.println("entrySet - Key: " + entries.getKey() + ", Value: " + entries.getValue());
     }
 
+    // ~ Hashtable
     Hashtable<String, Integer> hashtable = new Hashtable<>(); // Hashtable <- table *소문자* 주의
 
     hashtable.put("Java", 100);
