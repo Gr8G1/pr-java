@@ -1,6 +1,6 @@
-package Gr8G1.prac.section1.oop.ac.outside;
+package Gr8G1.prac.section.oop.ac.outside;
 
-import Gr8G1.prac.section1.oop.ac.PrAccessControl;
+import Gr8G1.prac.section.oop.ac.PrAccessControl;
 
 import java.util.Arrays;
 

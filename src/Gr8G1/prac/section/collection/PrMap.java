@@ -1,8 +1,6 @@
-package Gr8G1.prac.section1.collection;
+package Gr8G1.prac.section.collection;
 
 import java.util.*;
-import java.util.function.Function;
-import java.util.function.IntBinaryOperator;
 
 public class PrMap {
   /*

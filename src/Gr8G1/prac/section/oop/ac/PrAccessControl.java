@@ -1,4 +1,4 @@
-package Gr8G1.prac.section1.oop.ac;
+package Gr8G1.prac.section.oop.ac;
 
 import java.util.Arrays;
 

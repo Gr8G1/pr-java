@@ -1,6 +1,6 @@
-package Gr8G1.prac.section1.oop.ac.inside;
+package Gr8G1.prac.section.oop.ac.inside;
 
-import Gr8G1.prac.section1.oop.ac.PrAccessControl;
+import Gr8G1.prac.section.oop.ac.PrAccessControl;
 
 public class PrSPAc {
   public static void main(String[] args) {

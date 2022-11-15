@@ -1,4 +1,4 @@
-package Gr8G1.prac.section1;
+package Gr8G1.prac.section;
 
 import java.util.StringTokenizer;
 

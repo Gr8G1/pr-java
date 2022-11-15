@@ -1,4 +1,4 @@
-package Gr8G1.prac.section1.oop;
+package Gr8G1.prac.section.oop;
 
 public class PrPolymorphism {
   /*

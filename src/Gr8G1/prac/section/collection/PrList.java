@@ -1,4 +1,4 @@
-package Gr8G1.prac.section1.collection;
+package Gr8G1.prac.section.collection;
 
 import java.util.*;
 

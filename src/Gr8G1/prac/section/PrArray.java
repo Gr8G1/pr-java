@@ -1,4 +1,4 @@
-package Gr8G1.prac.section1;
+package Gr8G1.prac.section;
 
 import java.util.*;
 
@@ -23,9 +23,5 @@ public class PrArray {
     ArrayList<Integer> newArr = new ArrayList<>(Arrays.asList(arr)); // ArrayList <-> List 변환 후 사용
 
     System.out.println(newArr.indexOf(1));
-
-    // Array.stream
-    String[] strings = {"1", "2", "3"};
-    int[] nums = Arrays.stream(strings).mapToInt(Integer::parseInt).toArray();
   }
 }

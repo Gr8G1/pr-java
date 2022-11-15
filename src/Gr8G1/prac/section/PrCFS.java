@@ -1,4 +1,4 @@
-package Gr8G1.prac.section1;
+package Gr8G1.prac.section;
 
 public class PrCFS {
   public static void main(String[] args) {

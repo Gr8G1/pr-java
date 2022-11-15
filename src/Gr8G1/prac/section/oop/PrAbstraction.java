@@ -1,6 +1,4 @@
-package Gr8G1.prac.section1.oop;
-
-import java.util.concurrent.Callable;
+package Gr8G1.prac.section.oop;
 
 public class PrAbstraction {
   /*
