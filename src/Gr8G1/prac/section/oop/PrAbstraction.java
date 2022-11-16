@@ -1,5 +1,7 @@
 package Gr8G1.prac.section.oop;
 
+import java.util.function.Consumer;
+
 public class PrAbstraction {
   /*
    * # 객체 지향 프로그래밍(OOP)
@@ -58,6 +60,14 @@ public class PrAbstraction {
    *      abstract explicit();
    *      > 상동
    *      explicit();
+   *
+   *      default void defaultMethod() {
+   *        ... 구현부를 가질 수 있다.
+   *      }
+   *
+   *      static void staticMethod() {
+   *        ... 구현부를 가질 수 있다.
+   *      }
    *    }
    */
   public static void main(String[] args) {
