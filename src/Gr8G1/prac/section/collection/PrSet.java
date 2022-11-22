@@ -33,9 +33,12 @@ public class PrSet {
    *  - NavigableSet<E>	headSet(E toElement, boolean inclusive): 내부 요소가 엄격하게 toElement 미만인 이 집합의 부분 보기를 반환
    *
    */
+
   public static void main(String[] args) {
     // ~ HashSet
-    HashSet<String > hash = new HashSet<>();
+    HashSet<String> hash = new HashSet<>() {{
+      add("Hello World!");
+    }};
 
     hash.add("Java");
     hash.add("Java"); // 중복값 저장 불가

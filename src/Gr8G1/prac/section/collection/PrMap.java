@@ -7,9 +7,9 @@ public class PrMap {
    * # Map<K, V>
    *
    * Map
-   *  - K(key), V(value)를 매핑하며 중복 키는 존재할 수 없고 각 키는 하나의 값만 매핑할 수 있다.
+   *  - K(key), V(value)를 Entry 객체에 매핑하고 순서를 보장 받을 수 없다. 중복 키는 존재할 수 없고 각 키는 하나의 값만 매핑할 수 있다.
    *    > 저장된 객체를 Entry 객체라 칭하고, Entry 객체는 K(key), V(value)를 각각 Key 객체와 Value객체로 저장한다.
-   *    > Map 인터페이스로 구현된 클래스: HashMap, TreeMap, LinkedHashMap ...
+   *    > Map 인터페이스로 구현된 클래스: HashMap, TreeMap, LinkedHashMap(순서 보장 해시맵) ...
    *
    * Map 인터페이스
    *  - 중첩 클래스
@@ -35,6 +35,8 @@ public class PrMap {
    *
    * HashMap 인터페이스
    *  - Set<Map.Entry<K,V>>	entrySet(): 맵에 포함된 모든 Entry를 Set으로 반환
+   *
+   * LinkedHashMap 인터페이스
    *
    * TreeMap 인터페이스
    *  - Object clone(): 단순 복사본을 반환(Shallow Copy)
@@ -65,11 +67,14 @@ public class PrMap {
    *
    */
 
-
-
   public static void main(String[] args) {
     // ~ HashMap
-    HashMap<Character, Integer> cHashMap = new HashMap<>();
+    HashMap<Character, Integer> cHashMap = new HashMap<>() {{
+      put('A', 1);
+      put('B', 1);
+      put('C', 1);
+    }};
+
 
     for (Character c: "Banana".toCharArray()) {
       /*

@@ -72,7 +72,7 @@ public class PrList {
     }
 
     // ~ ArrayList
-    ArrayList<Integer> a10List = new ArrayList<>(); // initialCapacity 없이 선언하면 10의 기본 저장 공간을 갖는다.
+    ArrayList<Integer> a10List = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5)); // initialCapacity 없이 선언하면 10의 기본 저장 공간을 갖는다.
 
     while (a10List.size() < 10) {
       a10List.add(a10List.size());

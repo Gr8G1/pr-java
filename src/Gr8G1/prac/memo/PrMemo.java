@@ -54,8 +54,6 @@ public class PrMemo {
    * ~ 참조: https://kb.iu.edu/d/abdb
    */
 
-
-
   /*
    * # .(Dot notation)
    *  - Java 클래스에 대한 모든 Java 생성자, 메소드 및 필드에 대한 전체 액세스 권한을 제공
