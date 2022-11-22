@@ -126,7 +126,7 @@ public class PrPlayGround {
   }
 
   public static String firstChar(String str) {
-    return Arrays.stream(str.split(" ")).reduce("", (a, c) -> a += c.charAt(0));
+    return Arrays.stream(str.split(" ")).reduce("", (a, c) -> a + c.charAt(0));
   }
 
   public static void main(String[] args) {

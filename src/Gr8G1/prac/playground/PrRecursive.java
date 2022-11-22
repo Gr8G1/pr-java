@@ -77,6 +77,20 @@ public class PrRecursive {
     return arr[0] && and(Arrays.copyOfRange(arr, 1, arr.length));
   }
 
+  public static String reString(String s, int repeat) {
+    if (repeat == 0) return s;
+
+    s = reString(s + s.charAt(0), repeat - 1);
+
+    return s; // Tail Recursion???
+  }
+
+  public static int reInt(int i, int repeat) {
+    if (repeat == 0) return i;
+
+    return reInt(i + i, repeat - 1); // Tail Recursion
+  }
+
   public static void main(String[] args) {
     int[] ia = new int[] {1, 2, 3};
 
@@ -86,7 +100,9 @@ public class PrRecursive {
     // System.out.println(PrRecursive.toSum(ia));
     // System.out.println(Arrays.toString(PrRecursive.take(4, ia)));
     // System.out.println(Arrays.toString(PrRecursive.drop(2, ia)));
+    // System.out.println(Arrays.toString(PrRecursive.reverse(ia)));
     // System.out.println(PrRecursive.and(new boolean[] {}));
-    System.out.println(Arrays.toString(PrRecursive.reverse(ia)));
+    // System.out.println(PrRecursive.reString("1", 3));
+    System.out.println(PrRecursive.reInt(1, 5));
   }
 }
