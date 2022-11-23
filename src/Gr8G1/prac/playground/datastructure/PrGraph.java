@@ -53,7 +53,7 @@ public class PrGraph {
     return false;
   }
 
-  public static int getVertex(int[][] edges) {
+  public static int getConnectedVertex(int[][] edges) {
     int vertex = 0;
     int size = Arrays.stream(edges).flatMapToInt(Arrays::stream).max().orElse(0) + 1;
 
@@ -100,7 +100,7 @@ public class PrGraph {
           Integer c = q.remove();
           visited[c] = true;
 
-          for (var i = 0; i < adjMatrix.length; i++) {
+          for (int i = 0; i < adjMatrix.length; i++) {
             if (!visited[i] && adjMatrix[c][i] == 1) {
               visited[i] = true;
               q.add(i);
@@ -189,14 +189,14 @@ public class PrGraph {
     //   getDirections(adjecencyList,1,4)
     // );
 
-    // System.out.println(
-    //     getVertex(new int[][] {
-    //         {0, 1},
-    //         {2, 3},
-    //         {3, 4},
-    //         {4, 5}
-    //     })
-    // );
+    System.out.println(
+        getConnectedVertex(new int[][] {
+            {0, 1},
+            {2, 3},
+            {3, 4},
+            {4, 5}
+        })
+    );
 
     System.out.println(barcodeDFS(3));
     // System.out.println(barcodeDFS(7));

@@ -4,6 +4,7 @@ import Gr8G1.prac.playground.datastructure.PrBufferQueue;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class PrPlayGround {
   public static ArrayList<Stack> browserStack(String[] actions, String start) {
@@ -129,6 +130,15 @@ public class PrPlayGround {
     return Arrays.stream(str.split(" ")).reduce("", (a, c) -> a + c.charAt(0));
   }
 
+  public static String reverseString(String str) {
+    return new StringBuilder(str).reverse().toString();
+  }
+
+  public static String firstCapitalize(String str) {
+    String[] strArr = Arrays.stream(str.split(" ")).map(s -> Character.toUpperCase(s.charAt(0)) + s.substring(1)).toArray(String[]::new);
+    return String.join(" ", strArr);
+  }
+
   public static void main(String[] args) {
     // # HashMap 초기화
     // System.out.println(
@@ -156,8 +166,9 @@ public class PrPlayGround {
     // # BufferQueue
     // System.out.println(queuePrinter(10, 100, new int[] {10, 10, 10, 10}));
 
-    // # FirstChar
+    // # 문자열 관련
     System.out.println(firstChar("Hello World!"));
+    System.out.println(reverseString("Hello World!"));
+    System.out.println(firstCapitalize("Hello World!"));
   }
 }
-
