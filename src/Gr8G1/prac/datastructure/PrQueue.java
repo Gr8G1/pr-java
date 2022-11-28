@@ -1,8 +1,8 @@
-package Gr8G1.prac.playground.datastructure;
+package Gr8G1.prac.datastructure;
 
 import java.util.ArrayList;
 
-class PrListQueue<T> {
+class PrQueue<T> {
   private ArrayList<T> listQueue = new ArrayList<>();
 
   public void size() {

@@ -1,8 +1,8 @@
-package Gr8G1.prac.playground.datastructure;
+package Gr8G1.prac.datastructure;
 
 import java.util.ArrayList;
 
-class PrListStack<T> {
+class PrStack<T> {
   private final ArrayList<T> listStack = new ArrayList<>();
 
   public void show() {

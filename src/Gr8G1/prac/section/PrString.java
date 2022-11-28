@@ -1,5 +1,6 @@
 package Gr8G1.prac.section;
 
+import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 public class PrString {
@@ -21,6 +22,16 @@ public class PrString {
    *
    * ! String str = 'abcd'; // Error: 작은따옴표 사용 불가
    */
+
+  public static void buildString(int[] arr) {
+    StringBuilder v = new StringBuilder();
+    for (int j : arr) v.append(j);
+
+    System.out.println(v);
+
+    // Integer.parseInt(v.toString()));
+  }
+
   static String str = "String";
 
   public static void main(String[] args) {
@@ -51,5 +62,8 @@ public class PrString {
     strBf.append("Buffer");
     strBf.insert(0, "New");
     System.out.println(strBf);
+
+    //
+    buildString(new int[] {1, 2, 3, 4, 5});
   }
 }

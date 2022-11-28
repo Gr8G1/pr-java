@@ -1,6 +1,6 @@
-package Gr8G1.prac.playground.datastructure;
+package Gr8G1.prac.datastructure;
 
-import java.util.Arrays;
+import java.util.*;
 
 public class PrBufferQueue {
   private final int QUEUE_SIZE;
@@ -59,5 +59,36 @@ public class PrBufferQueue {
     Q[front][1] = 0;
     front = (front + 1) % QUEUE_SIZE;
     size--;
+  }
+
+  public static int queuePrinter(int bufferSize, int capacities, int[] documents) {
+    PrBufferQueue q = new PrBufferQueue(bufferSize);
+
+    int time = 1;
+    int docIdx = 0;
+
+    q.push(new int[] {1, documents[docIdx++]});
+
+    while (q.size() > 0) {
+      time++;
+      q.upBuffer();
+
+      if (q.getBuffer() > bufferSize) q.shift();
+      if (docIdx > documents.length - 1) continue;
+
+      int capa = q.capacity();
+      int size = q.size();
+
+      if (capacities >= (documents[docIdx] + capa) && bufferSize > size) {
+        q.push(new int[] {1, documents[docIdx++]});
+      }
+    }
+
+    return time;
+  }
+
+  public static void main(String[] args) {
+    // # BufferQueue
+    System.out.println(queuePrinter(10, 100, new int[] {10, 10, 10, 10}));
   }
 }

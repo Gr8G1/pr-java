@@ -22,6 +22,14 @@ public class PrArray {
     Integer[] arr = {1, 2, 3, 4, 5}; // Java Array indexOf 미제공
     ArrayList<Integer> newArr = new ArrayList<>(Arrays.asList(arr)); // ArrayList <-> List 변환 후 사용
 
+    System.out.println(Arrays.asList(arr).indexOf(2));
     System.out.println(newArr.indexOf(1));
+
+    Integer[] destdArr = new Integer[arr.length];
+
+    System.arraycopy(arr, 0, destdArr, 0, arr.length); // 기존 배열의 길이를 초과할 경우 Throw Exeception
+    System.out.println(Arrays.toString(Arrays.copyOfRange(arr, 0, arr.length + 1))); // 복사 시점에 신규 배열 생성 및 배열 길이 정의
+    System.out.println(Arrays.toString(destdArr));
+
   }
 }

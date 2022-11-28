@@ -1,4 +1,4 @@
-package Gr8G1.prac.playground.datastructure;
+package Gr8G1.prac.datastructure;
 
 import java.util.*;
 

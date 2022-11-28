@@ -20,9 +20,9 @@ public class PrRegEx {
       "\ttest"
     };
 
-    // for (String eachString : testStrings) {
-    //   System.out.println("Does \"" + eachString + "\" contain whitespace? " + containsWhitespace(eachString));
-    // }
+    for (String eachString : testStrings) {
+      System.out.println("Does \"" + eachString + "\" contain whitespace? " + containsWhitespace(eachString));
+    }
 
     String s = "{A=1}";
     String[] sa = s.replace("{", "")
