@@ -271,18 +271,6 @@ public class PrPlayGround {
     powerset(b, arr,idx + 1, result);
   }
 
-  public static <T> T[] concat(T[] a, T[] b) {
-    int aLen = a.length;
-    int bLen = b.length;
-
-    @SuppressWarnings("unchecked")
-    T[] c = (T[]) Array.newInstance(a.getClass().getComponentType(), aLen + bLen);
-    System.arraycopy(a, 0, c, 0, aLen);
-    System.arraycopy(b, 0, c, aLen, bLen);
-
-    return c;
-  }
-
   public static int ruleOf72(double rate) {
     // t = {ln(2)/ln(1+r/100) ~ approx 72/r
     int y;
@@ -351,6 +339,10 @@ public class PrPlayGround {
     return str.replaceAll("\\s{2}?", " ");
   }
 
+  public static boolean ABCheck(String str) {
+    return str.matches("(?i).*?a(.{3})b.*?") || str.matches("(?i).*?b(.{3})a.*?");
+  }
+
   public static void main(String[] args) {
     // # HashMap 초기화
     // System.out.println(
@@ -376,8 +368,7 @@ public class PrPlayGround {
     // System.out.println(reverseString("Hello World!"));
     // System.out.println(firstCapitalize("Hello World!"));
     // System.out.println(letterCapitalize("hello    world   !!!"));
-
-    System.out.println(convertDoubleSpaceToSingle("Hello  World!!!"));
+    // System.out.println(convertDoubleSpaceToSingle("Hello  World!!!"));
 
     // # 구현
     // 보드게임

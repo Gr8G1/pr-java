@@ -1,5 +1,6 @@
 package Gr8G1.prac.section;
 
+import java.lang.reflect.Array;
 import java.util.*;
 
 public class PrArray {
@@ -18,6 +19,18 @@ public class PrArray {
    * ! 주의: 배열의 길이(선언, 초기화)에 항상 유념하도록 하자.
    *
    */
+  public static <T> T[] concat(T[] a, T[] b) {
+    int aLen = a.length;
+    int bLen = b.length;
+
+    @SuppressWarnings("unchecked")
+    T[] c = (T[]) Array.newInstance(a.getClass().getComponentType(), aLen + bLen);
+    System.arraycopy(a, 0, c, 0, aLen);
+    System.arraycopy(b, 0, c, aLen, bLen);
+
+    return c;
+  }
+
   public static void main(String[] args) {
     Integer[] arr = {1, 2, 3, 4, 5}; // Java Array indexOf 미제공
     ArrayList<Integer> newArr = new ArrayList<>(Arrays.asList(arr)); // ArrayList <-> List 변환 후 사용
