@@ -110,7 +110,7 @@ public class PrCS {
    * # Domain
    *
    * URL(Uniform Resource Locator) = https://www.example.com:8080/(index.html)
-   * URL(Uniform Resource Locator) = https://www.example.com:8080/(index.html) = https://www.example.com:8080/ex(index.html)?q=1
+   * URI(Uniform Resource Identifier) https://www.example.com:8080/ex(index.html)?q=1
    *
    * 구조
    *  - scheme(protocol): http(s?)://
@@ -123,7 +123,8 @@ public class PrCS {
    *    - file: index.html
    *    - query: ?q=1
    *
-   * DNS
+   * ~ DNS(Domain Name System)란?
+   *  - 사람이 읽을 수 있는 도메인 이름(예: www.example.com)을 머신이 읽을 수 있는 IP 주소(예: 192.0.2.44)로 변환하는 역활한다.
    *
    * 도메인 관리
    *  - ICANN 비영리 단체 (전체 도메인 관리)
@@ -145,6 +146,19 @@ public class PrCS {
 
   /*
    * # Web
+   *
+   * Client Server Architecture
+   *
+   * 2-Tier: (서버(Tier 1) / 클라이언트(Tier 2))
+   *  - 1980년대 LAN 환경에서 단순 분산 처리의 초기형태 (Fat Client 라고도 함)
+   *  - 각종 비지니스 로직 (Business Logic)을 전부 클라이언트에서 담당하고 서버는 단지 데이터 만을 공유하는 형태
+   *  - 클라이언트에게 부하가 많아져서 클라이언트 수가 많아지면 유지보수 비용이 증가
+   *
+   * 3-Tier: (데이터베이스관리시스템(Tier 1) - 웹 서버(Tier 2) - 클라이언트(Tier 3))
+   *  - 각각 서로 다른 플랫폼에서 동작하는 3개의 잘 정의된 독립 프로세스로 구성된 분산 클라이언트/서버 구조
+   *
+   * n-Tier
+   * - 클라이언트 부분에서는 프리젠테이션만 맡고, 대부분의 로직을 여러 종류의 다수의 서버 등에서 분산 처리하는 구조
    *
    * 웹 애플리케이션 개발시 고려사항
    *  1. 신뢰성(reliability)

@@ -343,6 +343,26 @@ public class PrPlayGround {
     return str.matches("(?i).*?a(.{3})b.*?") || str.matches("(?i).*?b(.{3})a.*?");
   }
 
+  public static String insertDash(String str) {
+    if (str.length() == 0) return null;
+    if (str.length() == 1) return str;
+
+    StringBuilder nStr = new StringBuilder();
+    String[] sStr = str.split("");
+
+    for (int i = 0; i <= sStr.length - 2; i++) {
+      int prev = Integer.parseInt(sStr[i]);
+      int next = Integer.parseInt(sStr[i + 1]);
+
+      nStr.append(prev);
+
+      if (prev % 2 != 0 && next % 2 != 0) nStr.append("-");
+      if (i == sStr.length - 2) nStr.append(next);
+    }
+
+    return nStr.toString();
+  }
+
   public static void main(String[] args) {
     // # HashMap 초기화
     // System.out.println(
@@ -369,6 +389,7 @@ public class PrPlayGround {
     // System.out.println(firstCapitalize("Hello World!"));
     // System.out.println(letterCapitalize("hello    world   !!!"));
     // System.out.println(convertDoubleSpaceToSingle("Hello  World!!!"));
+    System.out.println(insertDash("112233445566778899"));
 
     // # 구현
     // 보드게임
@@ -405,7 +426,7 @@ public class PrPlayGround {
     // boringBlackjack(new int[] {1, 2, 3, 4});
 
     // 빼빼로데이
-    divideChocolateStick(20, 10);
+    // divideChocolateStick(20, 10);
 
     // 집밥이 그리워
     // System.out.println(Arrays.deepToString(missHouseMeal(new String[] { "pasta", "oysterSoup", "beefRibs", "tteokbokki" }).toArray()));
