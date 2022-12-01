@@ -1,6 +1,5 @@
 package Gr8G1.prac.playground;
 
-import java.lang.reflect.Array;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -363,6 +362,23 @@ public class PrPlayGround {
     return nStr.toString();
   }
 
+  public static String[] removeExtremes(String[] arr) {
+    if (arr.length == 0) return null;
+
+    int[] min = new int[] {-1, Arrays.stream(arr).mapToInt(String::length).min().orElse(-1)};
+    int[] max = new int[] {-1, Arrays.stream(arr).mapToInt(String::length).max().orElse(-1)};
+
+    for (int i = 0; i < arr.length; i++) {
+      if (min[1] == arr[i].length()) min[0] = i;
+      if (max[1] == arr[i].length()) max[0] = i;
+    }
+
+    arr[min[0]] = "__remove__";
+    arr[max[0]] = "__remove__";
+
+    return  Arrays.stream(arr).filter(n -> !n.equals("__remove__")).toArray(String[]::new);
+  }
+
   public static void main(String[] args) {
     // # HashMap 초기화
     // System.out.println(
@@ -389,7 +405,8 @@ public class PrPlayGround {
     // System.out.println(firstCapitalize("Hello World!"));
     // System.out.println(letterCapitalize("hello    world   !!!"));
     // System.out.println(convertDoubleSpaceToSingle("Hello  World!!!"));
-    System.out.println(insertDash("112233445566778899"));
+    // System.out.println(insertDash("112233445566778899"));
+    System.out.println(Arrays.toString(removeExtremes(new String[]{"1", "456", "789", "123", "2", "3"})));
 
     // # 구현
     // 보드게임

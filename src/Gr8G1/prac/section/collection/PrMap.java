@@ -120,6 +120,16 @@ public class PrMap {
       System.out.println(entryIt.next().getKey() + entryIt.next().getValue());
     }
 
+    Comparator<Map.Entry<Integer, Integer>> comparator = new Comparator<>() {
+      @Override
+      public int compare(Map.Entry<Integer, Integer> o1, Map.Entry<Integer, Integer> o2) {
+        return o1.getValue().compareTo(o2.getValue());
+      }
+    };
+
+    // Map.Entry<Integer, Integer> min = Collections.min(hashMap.entrySet(), comparator);
+    // Map.Entry<Integer, Integer> max = Collections.max(hashMap.entrySet(), comparator);
+
 
     // ~ Hashtable
     Hashtable<String, Integer> hashtable = new Hashtable<>(); // Hashtable <- table *소문자* 주의
