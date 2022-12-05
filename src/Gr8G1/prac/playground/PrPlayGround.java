@@ -376,7 +376,69 @@ public class PrPlayGround {
     arr[min[0]] = "__remove__";
     arr[max[0]] = "__remove__";
 
-    return  Arrays.stream(arr).filter(n -> !n.equals("__remove__")).toArray(String[]::new);
+    return Arrays.stream(arr).filter(n -> !n.equals("__remove__")).toArray(String[]::new);
+  }
+
+  public static int[] reverseArr(int[] arr) {
+    int[] reverse = new int[arr.length];
+
+    for (int i = 0, j = arr.length - 1; i < arr.length; i++, j--) reverse[j] = arr[i];
+
+    // swap
+    // for (int i = 0, t, n = arr.length - 1; i < arr.length / 2; i++) {
+    //   t = arr[i];
+    //   arr[i] = arr[n - i];
+    //   arr[n - i] = t;
+    // }
+
+    return reverse;
+  }
+
+  public static String readVertically(String[] arr) {
+    // 1 2 3 - 0 1 2 - 14 25 36
+    // 4 5 6 - 1 3 5 - 147 258 369
+    // 7 8 9 - 2 5 8 - 1470 258- 369=
+    // 0 - = - 3 7 11
+
+    // for (int i = 1; i < arr.length; i++) {
+    //   for (int j = 0, p = i ; j < arr[i].length(); j++, p++) {
+    //     try {
+    //       str.insert(j == 0 ? p : (p + (i * j)), arr[i].charAt(j));
+    //     } catch (Exception e) {
+    //       str.append(arr[i].charAt(j));
+    //     }
+    //   }
+    // }
+    //
+    // return str.toString();
+    int maxLength = 0;
+    for (String s : arr) if (maxLength < s.length()) maxLength = s.length();
+
+    String[] temp = new String[maxLength];
+
+    for (String str : arr) {
+      for (int j = 0; j < str.length(); j++) {
+        if (temp[j] == null) temp[j] = Character.toString(str.charAt(j));
+        else temp[j] = temp[j] + str.charAt(j);
+      }
+    }
+
+    StringBuilder result = new StringBuilder();
+
+    for (String s : temp) result.append(s);
+
+    return result.toString();
+  }
+
+  public static boolean superIncreasing(int[] arr) {
+    int calc = 0;
+
+    for (int i = 1; i < arr.length; i++) {
+      calc += arr[i-1];
+      if (calc >= arr[i]) return false;
+    }
+
+    return true;
   }
 
   public static void main(String[] args) {
@@ -406,7 +468,10 @@ public class PrPlayGround {
     // System.out.println(letterCapitalize("hello    world   !!!"));
     // System.out.println(convertDoubleSpaceToSingle("Hello  World!!!"));
     // System.out.println(insertDash("112233445566778899"));
-    System.out.println(Arrays.toString(removeExtremes(new String[]{"1", "456", "789", "123", "2", "3"})));
+    // System.out.println(Arrays.toString(removeExtremes(new String[]{"1", "456", "789", "123", "2", "3"})));
+    // System.out.println(Arrays.toString(reverseArr(new int[] {1, 2, 3, 4, 5})));
+    // System.out.println(readVertically(new String[] {"12", "4567", "789"}));
+    System.out.println(superIncreasing(new int[] {-10, 1, 3, 5, 13, 52}));
 
     // # 구현
     // 보드게임

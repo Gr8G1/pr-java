@@ -58,7 +58,6 @@ public class PrRecursive {
 
   public static int[] reverse(int[] arr) {
     if (arr.length == 0) return new int[] {};
-    ArrayList<Integer> al = new ArrayList<>();
     int leng = arr.length;
 
     int[] h = Arrays.copyOfRange(arr, leng - 1, leng);
