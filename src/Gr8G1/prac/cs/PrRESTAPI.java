@@ -104,6 +104,7 @@ public class PrRESTAPI {
    *    - 400: 서버가 처리할 수 없는 잘못된 요청
    *    - 404: 리소스를 찾을 수 없음
    *    - 5xx: 서버 오류
+   *    > 응답 코드 참조: https://developer.mozilla.org/ko/docs/Web/HTTP/Status
    *
    * # RESTful이란?
    *  - REST(아키텍처) 원리를 따르는 시스템 또는 제공하는 웹 서비스를 ‘RESTful’하다 표현 또는 지칭(비공식)

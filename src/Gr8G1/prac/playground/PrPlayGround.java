@@ -1,6 +1,8 @@
 package Gr8G1.prac.playground;
 
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class PrPlayGround {
@@ -274,7 +276,7 @@ public class PrPlayGround {
     // t = {ln(2)/ln(1+r/100) ~ approx 72/r
     int y;
     double d;
-    for (y = 0, d = 1; d < 2; y++, d = (d + (d * rate / 100.0))) ;
+    for (y = 0, d = 1; d < 2; y++, d = (d + (d * rate / 100.0)));
 
     return y;
   }
@@ -441,6 +443,104 @@ public class PrPlayGround {
     return true;
   }
 
+  public static Integer modulo(int num1, int num2) {
+    if (num2 == 0) return null;
+
+    while (num1 >= num2) num1 -= num2;
+
+    return num1;
+  }
+
+  public static boolean isIsogram(String str) {
+    HashMap<Character, Integer> isogram = new HashMap<>();
+
+    for (Character c: str.toCharArray()) {
+      Character k = Character.toLowerCase(c);
+
+      if (!isogram.containsKey(k)) isogram.put(k, 1);
+      else return false;
+    }
+
+    return true;
+  }
+
+  public static String computeSquareRoot(int num) {
+    double approx = 1;
+
+    while (Math.pow(approx, 2) != num) {
+      if (Double.parseDouble(String.format("%.2f", Math.pow(approx, 2))) == num) break;
+
+      // 바빌로니아 점화식: Xn+1 = 1/2(Xn + a/Xn) ->
+      approx = (approx + (num / approx)) / 2;
+    }
+
+    return String.format("%.2f", approx);
+  }
+
+  public static int numberSearch(String str) {
+    double result = 0, i, f;
+    Pattern numPattern = Pattern.compile("[0-9]");
+    Matcher matcher = numPattern.matcher(str);
+
+    while (matcher.find()) result += Integer.parseInt(matcher.group());
+
+    String s = str.replaceAll(String.valueOf(numPattern), "").replaceAll("(?U)\\s+", "");
+
+    result = result / s.length();
+    // i = Math.floor(result); integer portion
+    // f = result - i; // fraction portion
+    // return f < .5 ? i : i + 1; // rounding result
+
+    System.out.println(result);
+    System.out.println(Math.round(result));
+    System.out.println(Math.round(1.5));
+
+    return (int) Math.round((result * 10) / 10);
+  }
+
+  public static String decryptCaesarCipher(String str, int secret) {
+    // encrypt: f(p)=(ap+b) % 26
+    // decrypt: f^-1(p)=(ap-b) % 26
+    StringBuilder result = new StringBuilder();
+    secret %= 26;
+
+    for (int i = 0; i < str.length(); i++) {
+      char ct = str.charAt(i);
+      int ascii = ct - secret;
+
+      if (Character.isLowerCase(ct) && !Character.isLowerCase(ascii)) ascii += 26;
+      else if (Character.isUpperCase(ct) && !Character.isUpperCase(ascii)) ascii += 26;
+
+      if(ct != 32) result.append((char) ascii); // 32: space
+      else result.append(ct);
+    }
+
+    return result.toString();
+  }
+
+  public static String compressString(String str) {
+    StringBuilder results = new StringBuilder();
+
+    while (str.length() != 0) {
+      Character firstLetter = str.charAt(0);
+
+      Pattern regex = Pattern.compile( "^" + firstLetter + "{3,}");
+      Matcher match = regex.matcher(str);
+
+      if (match.find()) {
+        results.append(match.group().length()).append(firstLetter);
+
+        str = str.replace(match.group(), "");
+      } else {
+        results.append(firstLetter);
+
+        str = str.substring(1);
+      }
+    }
+
+    return results.toString();
+  }
+
   public static void main(String[] args) {
     // # HashMap 초기화
     // System.out.println(
@@ -471,7 +571,14 @@ public class PrPlayGround {
     // System.out.println(Arrays.toString(removeExtremes(new String[]{"1", "456", "789", "123", "2", "3"})));
     // System.out.println(Arrays.toString(reverseArr(new int[] {1, 2, 3, 4, 5})));
     // System.out.println(readVertically(new String[] {"12", "4567", "789"}));
-    System.out.println(superIncreasing(new int[] {-10, 1, 3, 5, 13, 52}));
+    // System.out.println(superIncreasing(new int[] {-10, 1, 3, 5, 13, 52}));
+    // System.out.println(modulo(123456789, 67));
+    // System.out.println(isIsogram("Mouse"));
+    // System.out.println(computeSquareRoot(9));
+    // System.out.println(computeSquareRoot(9));
+    // System.out.println(numberSearch("YlQO uT9"));
+    // System.out.println(decryptCaesarCipher("Aa Bb", 27));
+    System.out.println(compressString("wwwggoppopppp"));
 
     // # 구현
     // 보드게임

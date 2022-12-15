@@ -217,10 +217,13 @@ public class PrDatabase {
    *
    * 뷰(View)
    *  -
+   *
    * 인덱스(Index)
    *  -
+   *
    * 저장 프로시저(Stored Procedure)
-   *  -
+   *  - 일련의 SQL를 마치 하나의 함수처럼 실행하기 위한 쿼리의 집합체이다.
+   *
    * 저장 함수(Stored Function)
    *  -
    *
