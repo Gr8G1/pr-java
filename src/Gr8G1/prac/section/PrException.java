@@ -34,13 +34,14 @@ public class PrException {
    *  - throw new RuntimeException(); // 예외처리 try/catch 구문 블록 선택
    *
    * 메소드 예외 선언
-   *  - public void excepMothod() throws [CheckedException] { // 예외처리 필수인 Checked의 경우 예외 선언 (Unchecked 예외 또한 선언 가능하지만 적지 않는것이 정석)
+   *  - public void excepMothod() throws [CheckedException] {
+   *    // 예외처리 필수인 Checked의 경우 예외 선언 (Unchecked 예외 또한 선언 가능하지만 적지 않는것이 정석)
    *    ...
    *  }
    *
    * 사용자 정의 예외 생성
-   *  - 조상은 Exception | RuntimeException 선택
-   *  > class MyException extends Exception | RuntimeException {
+   *  - 조상은 Exception | RuntimeException | ..선택
+   *  > class MyException extends [Eqxception | RuntimeException | ..] {
    *      MyException(String msg) {
    *        super(msg)
    *      }

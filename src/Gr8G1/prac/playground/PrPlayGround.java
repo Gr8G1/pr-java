@@ -573,6 +573,11 @@ public class PrPlayGround {
     return (int) ((Math.pow(phi, n) - Math.pow(-phi, -n)) / sr5);
   }
 
+  public static boolean isSubsetOf(int[] base, int[] sample) {
+    return new HashSet<>(Arrays.stream(base).boxed().collect(Collectors.toList()))
+        .containsAll(Arrays.stream(sample).boxed().collect(Collectors.toList()));
+  }
+
   public static void main(String[] args) {
     // # HashMap 초기화
     // System.out.println(
@@ -614,7 +619,8 @@ public class PrPlayGround {
     // System.out.println(largestProductOfThree(new int[] {-5, -4, -3, -1, 999, 10000}));
     // System.out.println(largestProductOfThree(new int[] {-50, -20, -30, -5, 40}));
     // System.out.println(largestProductOfThree(new int[] {2, 3, -11, 7, 5, -13}));
-    System.out.println(fibonacci(7));
+    // System.out.println(fibonacci(7));
+    System.out.println(isSubsetOf(new int[] {1, 2, 3, 4, 5}, new int[] {3}));
 
     // # 구현
     // 보드게임
