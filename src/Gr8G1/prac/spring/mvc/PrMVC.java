@@ -4,6 +4,8 @@ public class PrMVC {
   /*
    * # MVC
    *  - 사용자 인터페이스, 데이터 및 논리 제어를 구현하는데 널리 사용되는 소프트웨어 디자인 패턴
+   *  - MVC 패턴 사용 의의: 역할과 채임에 따른 분리로 인해 유지보수, 확장, 유연성의 증가와, 코드의 중복도 제거의 효과를 보장하기 위해
+   *  ~ Documents: https://docs.spring.io/spring-framework/docs/current/reference/html/web.html#mvc
    *
    * # Model
    *  - 클라이언트에게 응답으로 돌려주는 작업의 처리 결과 데이터를 Model 이라고 한다.
@@ -50,12 +52,23 @@ public class PrMVC {
    *  View
    *    13. view 응답 생성 및 반환
    *
-   *
    * # DispatcherServlet의 역할
    *  - Spring MVC의 요청 처리 흐름을 가만히 살펴보면 DispatcherServlet이 굉장히 많은 일을 하는 것처럼 보인다.
    *    클라이언트로부터 요청을 전달 받으면 HandlerMapping, HandlerAdapter, ViewResolver, View 등 대부분의 Spring MVC 구성 요소들과 상호 작용을 하고 있는 것을 볼 수 있다.
    *    그런데 DispatcherServlet이 굉장히 바빠보이지만 실제로 요청에 대한 처리는 다른 구성 요소들에게 위임(Delegate)하고 있다.
    *    이처럼 DispatcherServlet이 애플리케이션의 가장 앞단에 배치되어 다른 구성요소들과 상호작용하면서 클라이언트의 요청을 처리하는 패턴을 *Front Controller Pattern*이라고 한다.
+   *
+   * # DTO(Data Transfer Object)란?
+   *  - 마틴 파울러(Martin Fowler)가 ‘Patterns of Enterprise Application Architecture’ 라는 책에서 처음 소개한 엔터프라이즈 애플리케이션 아키텍처 패턴의 하나이다.
+   *    Transfer라는 의미에서 알 수 있듯이 데이터를 전송하기 위한 용도의 객체 정도로 생각할 수 있는데 클라이언트 <-> 서버 요청/응답 데이터의 형태를 객체로 관리하는것으로 볼 수 있다.
+   *
+   * # HttpMessageConverter
+   *
+   * JSON 직렬화(Serialization)와 역직렬화(Deserialization)
+   *  - JSON 직렬화(Serialization): Java 객체 → JSON
+   *    - 서버 쪽에서 클라이언트에게 응답 데이터를 전송하기 위해서 DTO 같은 Java의 객체를 JSON 형식으로 변환하는 것
+   *  - JSON 역직렬화(Deserialization): JSON → Java 객체
+   *    - 클라이언트 쪽에서 JSON 형식의 데이터를 서버 쪽으로 전송하면 서버 쪽의 웹 애플리케이션은 전달 받은 JSON 형식의 데이터를 DTO 같은 Java의 객체로 변환하는것
    *
    */
 
@@ -77,7 +90,15 @@ public class PrMVC {
    *    > 응답값 Header 내용 변경
    *      HttpHeaders headers = new HttpHeaders();
    *      headers.set("Client-Geo-Location", "Korea, Seoul");
-   *      return ResponseEntity<>(XXX, headers, HttpStatus.CREATED)
+   *      return new ResponseEntity<>(XXX, headers, HttpStatus.CREATED)
+   *
+   * @RequestBody
+   *  - JSON 형식의 Request Body를 DTO 클래스(정의된) 객체로 변환을 시켜주는 역할을 한다.
+   *    > 내부적으로 HttpMessageConverter 를 통해 JSON 형식으로 변경된다.
+   *
+   * @ResponseBody
+   *  - JSON 형식의 Response Body를 클라이언트에게 전달하기 위해 DTO 클래스의 객체를 Response Body로 변환하는 역할을 한다.
+   *    > 내부적으로 HttpMessageConverter 를 통해 Response Body 형식으로 변경된다.
    *
    * @PathVariable
    *  - @RequestMapping URI 템플릿 패턴 형식으로 지정된 변수의 접근하여 인수(Parameter - 바인딩 된 정보)로 받을 수 있다.
@@ -89,6 +110,28 @@ public class PrMVC {
    *
    * @GetMapping, @PostMapping
    *  - URI 생략시 클래스 레벨의 URI 경로로 Request URI를 구성한다.
+   *
+   * @RestController
+   *  - @Component를 포함한 애너테이션 (역할과 책임 분리에 따른 정형화된 네이밍룰 스프링 계층 구조와 밀접한 연관이 있다)
+   * @Controller
+   *  - @Component를 포함한 애너테이션 (역할과 책임 분리에 따른 정형화된 네이밍룰 스프링 계층 구조와 밀접한 연관이 있다))
+   * @Service
+   *  - @Component를 포함한 애너테이션 (역할과 책임 분리에 따른 정형화된 네이밍룰 스프링 계층 구조와 밀접한 연관이 있다))
+   * @Repository
+   *  - @Component를 포함한 애너테이션 (역할과 책임 분리에 따른 정형화된 네이밍룰 스프링 계층 구조와 밀접한 연관이 있다))
+   *
+   * @ExceptionHandler
+   *  - @Controller, @ControllerAdvice에서의 예외처리 애너테이션
+   *
+   *
+   */
+
+  /*
+   * # Jakarta Bean Validation
+   *  - 유효성 검증에 필요한 표준 스펙 정의 참고
+   *    - 대표: https://beanvalidation.org/
+   *    - 내장 constraints 목록: https://jakarta.ee/specifications/bean-validation/3.0/jakarta-bean-validation-spec-3.0.html#builtinconstraints
+   *  - Java Bean 스펙을 준수하는 Java 클래스라면 Jakarta Bean Validation의 애너테이션을 사용해서 유효성 검증이 가능하다.
    *
    */
 
@@ -126,11 +169,23 @@ public class PrMVC {
    *          ..
    *          implementation 'org.apache.httpcomponents:httpclient'
    *        }
-   *    > pr-spring 프로젝트 참고
+   *  ~ pr-spring 프로젝트 : java/Gr8G1/prac/section/rest/RestClientTemplate.java 참고
    *
+   * # WebClient
+   *  - TODO: WebClient학습 진행 예정
    *
    *
    */
 
-
+  /*
+   * # MapStruct
+   *  - Object Mapping 라이브러리 (DTO -> Entity)
+   *    > Controller <-> Service 역할과 책임 분리를 위해 사용
+   *  - Home: https://mapstruct.org/
+   *  - Examples: https://github.com/mapstruct/mapstruct-examples
+   *
+   * @Mapper
+   *  - @Mapper 사용시 componentModel = "spring" 설정 필수 (Spring의 Bean으로 등록)
+   *
+   */
 }

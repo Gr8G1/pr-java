@@ -21,6 +21,52 @@ public class PrStream {
    *  - 최종(출력)(terminal): 스트림 최종 결과 반환
    *
    */
+
+  /*
+   * # Stream<T>
+   *
+   *  - public Stream<T> filter(Predicate<? super T> predicate): 조건(람다식) 충족값 스트림 생성
+   *  - public <R> Stream<R> map(Function<? super T, ? extends R> mapper): T 입력 R타입 요소로 변환후 스트림 생성
+   *  - public IntStream mapToInt(ToIntFunction<? super T> mapper),
+   *  - public LongStream mapToLong(ToLongFunction<? super T> mapper),
+   *  - public DoubleStream mapToDouble(ToDoubleFunction<? super T> mapper): map Type 형 변환
+   *  - public <R> Stream<R> flatMap(Function<? super T, ? extends Stream<? extends R>> mapper): T타입 요소를 1:N의 R타입 요소로 변환후 스트림 생성
+   *  - public IntStream flatMapToInt(Function<? super T, ? extends IntStream> mapper),
+   *  - public LongStream flatMapToLong(Function<? super T, ? extends LongStream> mapper),
+   *  - public DoubleStream flatMapToDouble(Function<? super T, ? extends DoubleStream> mapper): flatMap Type 형변환
+   *  - public Stream<T> distinct(): Stream의 중복값 제거
+   *  - public Stream<T> sorted(): Stream의 정렬
+   *  - public Stream<T> sorted(Comparator<? super T> comparator):
+   *  - public Stream<T> peek(Consumer<? super T> action): T타입 요소에 대응하는 작업 수행
+   *  - public Stream<T> limit(long maxSize): 주어진 maxSize 대응 Stream 생성
+   *  - public Stream<T> skip(long n): 주어진 n개의 요소를 제외한 Stream 생성
+   *  - public void forEach(Consumer<? super T> action): Stream 의 각 요소에 지정된 작업 수행
+   *  - public void forEachOrdered(Consumer<? super T> action):
+   *  - public Object[] toArray(): Stream 의 모든 요소를 배열로 반환
+   *  - public <A> A[] toArray(IntFunction<A[]> generator):
+   *  - public T reduce(T identity, BinaryOperator<T> accumulator): Stream 요소 누산 실행 결과 반환
+   *  - public Optional<T> reduce(BinaryOperator<T> accumulator):
+   *  - public <U> U reduce(U identity, BiFunction<U, ? super T, U> accumulator, BinaryOperator<U> combiner):
+   *  - public <R> R collect(Supplier<R> supplier, BiConsumer<R, ? super String> accumulator, BiConsumer<R, R> combiner):
+   *  - public <R, A> R collect(Collector<? super String, A, R> collector):  Stream 요소 수집 후 반환
+   *  - public Optional<T> min(Comparator<? super T> comparator): Stream 요소의 최대 값 반환
+   *  - public Optional<T> max(Comparator<? super T> comparator): Stream 요소의 최소 값 반환
+   *  - public long count(): Stream 의 요소 개수 반환
+   *  - public boolean anyMatch(Predicate<? super T> predicate): Stream의 값이 하나라도 만족하는지의 결과 반환
+   *  - public boolean allMatch(Predicate<? super T> predicate): Stream의 값이 모두 만족하는지의 결과 반환
+   *  - public boolean noneMatch(Predicate<? super T> predicate): Stream 의 값이 하나라도 만족하지않는지의 결과 반환
+   *  - public Optional<T> findFirst(): Stream 첫 번째 요소 반환
+   *  - public Optional<T> findAny(): Stream 랜덤 요소 반환
+   *  - public Iterator<T> iterator(): Stream Iterator 반환
+   *  - public Spliterator<T> spliterator():
+   *  - public Stream<T> sequential():
+   *  - public Stream<T> parallel(): Stream 병렬 처리
+   *  - public Stream<T> unordered():
+   *  - public Stream<T> onClose(Runnable closeHandler):
+   *  - public void close(): Stream 종료
+   *  - public boolean isParallel(): 병렬 Stream 여부 확인
+   *
+   */
   public static void main(String[] args) {
     // # 생성 & 출력
     String[] strArr = {"3", "2", "1"};
@@ -69,45 +115,3 @@ public class PrStream {
     System.out.println(fcS);
   }
 }
-
-// Stream<T>
-//  - public Stream<T> filter(Predicate<? super T> predicate): 조건(람다식) 충족값 스트림 생성
-//  - public <R> Stream<R> map(Function<? super T, ? extends R> mapper): T 입력 R타입 요소로 변환후 스트림 생성
-//  - public IntStream mapToInt(ToIntFunction<? super T> mapper),
-//  - public LongStream mapToLong(ToLongFunction<? super T> mapper),
-//  - public DoubleStream mapToDouble(ToDoubleFunction<? super T> mapper): map Type 형 변환
-//  - public <R> Stream<R> flatMap(Function<? super T, ? extends Stream<? extends R>> mapper): T타입 요소를 1:N의 R타입 요소로 변환후 스트림 생성
-//  - public IntStream flatMapToInt(Function<? super T, ? extends IntStream> mapper),
-//  - public LongStream flatMapToLong(Function<? super T, ? extends LongStream> mapper),
-//  - public DoubleStream flatMapToDouble(Function<? super T, ? extends DoubleStream> mapper): flatMap Type 형변환
-//  - public Stream<T> distinct(): Stream의 중복값 제거
-//  - public Stream<T> sorted(): Stream의 정렬
-//  - public Stream<T> sorted(Comparator<? super T> comparator):
-//  - public Stream<T> peek(Consumer<? super T> action): T타입 요소에 대응하는 작업 수행
-//  - public Stream<T> limit(long maxSize): 주어진 maxSize 대응 Stream 생성
-//  - public Stream<T> skip(long n): 주어진 n개의 요소를 제외한 Stream 생성
-//  - public void forEach(Consumer<? super T> action): Stream 의 각 요소에 지정된 작업 수행
-//  - public void forEachOrdered(Consumer<? super T> action):
-//  - public Object[] toArray(): Stream 의 모든 요소를 배열로 반환
-//  - public <A> A[] toArray(IntFunction<A[]> generator):
-//  - public T reduce(T identity, BinaryOperator<T> accumulator): Stream 요소 누산 실행 결과 반환
-//  - public Optional<T> reduce(BinaryOperator<T> accumulator):
-//  - public <U> U reduce(U identity, BiFunction<U, ? super T, U> accumulator, BinaryOperator<U> combiner):
-//  - public <R> R collect(Supplier<R> supplier, BiConsumer<R, ? super String> accumulator, BiConsumer<R, R> combiner):
-//  - public <R, A> R collect(Collector<? super String, A, R> collector):  Stream 요소 수집 후 반환
-//  - public Optional<T> min(Comparator<? super T> comparator): Stream 요소의 최대 값 반환
-//  - public Optional<T> max(Comparator<? super T> comparator): Stream 요소의 최소 값 반환
-//  - public long count(): Stream 의 요소 개수 반환
-//  - public boolean anyMatch(Predicate<? super T> predicate): Stream의 값이 하나라도 만족하는지의 결과 반환
-//  - public boolean allMatch(Predicate<? super T> predicate): Stream의 값이 모두 만족하는지의 결과 반환
-//  - public boolean noneMatch(Predicate<? super T> predicate): Stream 의 값이 하나라도 만족하지않는지의 결과 반환
-//  - public Optional<T> findFirst(): Stream 첫 번째 요소 반환
-//  - public Optional<T> findAny(): Stream 랜덤 요소 반환
-//  - public Iterator<T> iterator(): Stream Iterator 반환
-//  - public Spliterator<T> spliterator():
-//  - public Stream<T> sequential():
-//  - public Stream<T> parallel(): Stream 병렬 처리
-//  - public Stream<T> unordered():
-//  - public Stream<T> onClose(Runnable closeHandler):
-//  - public void close(): Stream 종료
-//  - public boolean isParallel(): 병렬 Stream 여부 확인

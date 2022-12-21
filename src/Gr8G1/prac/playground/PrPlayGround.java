@@ -3,7 +3,8 @@ package Gr8G1.prac.playground;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
+import java.util.stream.*;
+
 
 public class PrPlayGround {
   public static ArrayList<Stack> browserStack(String[] actions, String start) {
@@ -541,6 +542,37 @@ public class PrPlayGround {
     return results.toString();
   }
 
+  public static int largestProductOfThree(int[] arr) {
+    Integer[] sortedArr = Arrays.stream(arr).boxed().sorted(Comparator.reverseOrder()).toArray(Integer[]::new);
+
+    int calc1 = sortedArr[0] * sortedArr[1] * sortedArr[2];
+    int calc2 = sortedArr[0] * sortedArr[sortedArr.length - 1] * sortedArr[sortedArr.length - 2];
+
+    return Math.max(calc1, calc2);
+  }
+
+  public static int fibonacci(int n) {
+    // naive
+    // if (num <= 1) return num;
+    // return fibonacci(num - 1) + fibonacci(num - 2);
+
+    // With for
+    // int[] f = new int[num + 2];
+    //
+    // f[0] = 0;
+    // f[1] = 1;
+    //
+    // for (int i = 2; i <= num; i++) f[i] = f[i - 1] + f[i - 2];
+    //
+    // return f[num];
+
+    // Binet's formula: Sn = Φⁿ – (–Φⁿ) / √5 : O(logN)
+    double sr5 = Math.sqrt(5);
+    double phi = (1 + sr5) / 2;
+
+    return (int) ((Math.pow(phi, n) - Math.pow(-phi, -n)) / sr5);
+  }
+
   public static void main(String[] args) {
     // # HashMap 초기화
     // System.out.println(
@@ -578,7 +610,11 @@ public class PrPlayGround {
     // System.out.println(computeSquareRoot(9));
     // System.out.println(numberSearch("YlQO uT9"));
     // System.out.println(decryptCaesarCipher("Aa Bb", 27));
-    System.out.println(compressString("wwwggoppopppp"));
+    // System.out.println(compressString("wwwggoppopppp"));
+    // System.out.println(largestProductOfThree(new int[] {-5, -4, -3, -1, 999, 10000}));
+    // System.out.println(largestProductOfThree(new int[] {-50, -20, -30, -5, 40}));
+    // System.out.println(largestProductOfThree(new int[] {2, 3, -11, 7, 5, -13}));
+    System.out.println(fibonacci(7));
 
     // # 구현
     // 보드게임

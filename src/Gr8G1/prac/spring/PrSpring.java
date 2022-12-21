@@ -3,6 +3,34 @@ package Gr8G1.prac.spring;
 public class PrSpring {
   /*
    *
+   * # 스프링 도큐먼트
+   *  ~ https://docs.spring.io/spring-framework/docs/current/javadoc-api/index.html
+   *
+   * # 스프링 계층 구조
+   *
+   * # Presentation(상위) 계층
+   *  > 웹 클라이언트의 요청 및 응답을 처리
+   *  - HTTP 요청 처리 및 HTML 렌더링에 대해 알고 있는 웹 계층
+   *  - MVC (Model / View / Controller) 도 이 계층에 속한다.
+   *
+   * # Domain(Business or Service) 계층
+   *  > 비지니스 로직 처리와 비지니스와 관련된 도메인 모델의 적합성 검증
+   *  - IO 데이터를 기반으로 Presentation 계층에서 인계받은 데이터의 유효성 검사 및 일련의 연산을 포함하는 Business 논리 계층
+   *  - 애플리케이션이 수행해야하는 도메인과 관련된 작업들을 담당한다.
+   *
+   * # Data Access(Persistence) 계층
+   *  > 데이터베이스 또는 원격 서비스에서 영구 데이터를 관리하는 방법을 분류하는 데이터 접근 계층
+   *  - Database / Message Queue / 외부 API와의 통신 등 처리한다.
+   *
+   * 기능 기반 패키지 구조(package-by-feature) *권장*
+   *  - 패키지 하위에 하나의 기능을 완성하기 위한 계층별(API 계층, 서비스 계층, 데이터 액세스 계층)클래스들을 모아둔 구조
+   *
+   * 계층 기반 패키지 구조(package-by-layer)
+   *  - 패키지를 하나의 계층(Layer)으로 보고 클래스들을 계층별로 묶어서 관리하는 구조
+   *
+   */
+
+  /*
    * # POJO(Plan Old Java Object)
    *  - 오래된 방식의 간단한 자바 오브젝트라는 말로서 Java EE 등의 중량 프레임워크들을 사용하게 되면서
    *    해당 프레임워크에 종속된 "무거운" 객체를 만들게 된 것에 반발해서 사용되게 된 용어이다.
@@ -80,30 +108,6 @@ public class PrSpring {
    *
    * # JMS(Java Message Service)
    *  - Java 애플리케이션간의 통신을 메시지 기반으로 수행하기 위한 Java 표준 API로 비동기 메시징 처리 또한 지원한다.
-   */
-
-  /*
-   * 스프링 계층 구조
-   *
-   * # Presentation(상위) 계층
-   *  > 웹 클라이언트의 요청 및 응답을 처리
-   *  - HTTP 요청 처리 및 HTML 렌더링에 대해 알고 있는 웹 계층
-   *  - MVC (Model / View / Controller) 도 이 계층에 속한다.
-   *
-   * # Domain(Business or Service) 계층
-   *  > 비지니스 로직 처리와 비지니스와 관련된 도메인 모델의 적합성 검증
-   *  - IO 데이터를 기반으로 Presentation 계층에서 인계받은 데이터의 유효성 검사 및 일련의 연산을 포함하는 Business 논리 계층
-   *  - 애플리케이션이 수행해야하는 도메인과 관련된 작업들을 담당한다.
-   *
-   * # Data Access(Persistence) 계층
-   *  > 데이터베이스 또는 원격 서비스에서 영구 데이터를 관리하는 방법을 분류하는 데이터 접근 계층
-   *  - Database / Message Queue / 외부 API와의 통신 등 처리한다.
-   *
-   * 기능 기반 패키지 구조(package-by-feature) *권장*
-   *  - 패키지 하위에 하나의 기능을 완성하기 위한 계층별(API 계층, 서비스 계층, 데이터 액세스 계층)클래스들을 모아둔 구조
-   *
-   * 계층 기반 패키지 구조(package-by-layer)
-   *  - 패키지를 하나의 계층(Layer)으로 보고 클래스들을 계층별로 묶어서 관리하는 구조
    *
    */
 
@@ -117,5 +121,6 @@ public class PrSpring {
    * 3. @SpringBootConfiguration
    *  - Spring Context에 Bean을 추가적으로 등록하거나 Configuration 클래스를 추가적으로 임포트 하는 기능을 활성화
    *  - Spring Boot의 @*Test 애너테이션을 사용해서 테스트를 진행할 경우, 자동으로 @SpringBootConfiguration을 검색
+   *
    */
 }

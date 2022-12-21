@@ -1,5 +1,11 @@
 package Gr8G1.prac.section;
 
+import java.util.Arrays;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 public class PrEnum {
   /*
    * # enum
@@ -17,6 +23,45 @@ public class PrEnum {
    *
    */
   enum Seasons {SPRING, SUMMER, FALL, WINTER};
+
+  public enum Day {
+    MON("Monday", 10),
+    TUE("Tuesday", 20),
+    WED("Wednesday", 30),
+    THU("Thursday", 40),
+    FRI("Friday", 50),
+    SAT("Saturday", 60),
+    SUN("Sunday", 70)
+    ;
+
+    private final String label;
+    private final int number;
+
+    Day(String label, int number) {
+      this.label = label;
+      this.number = number;
+    }
+
+    public String label() {
+      return label;
+    }
+
+    public int number() {
+      return number;
+    }
+
+    private static final Map<String, Day> BY_LABEL = Stream.of(Day.values()).collect(Collectors.toMap(Day::label, Function.identity()));
+
+    private static final Map<Integer, Day> BY_NUMBER = Stream.of(values()).collect(Collectors.toMap(Day::number, Function.identity()));
+
+    public static Day valueOfLabel(String label) {
+      return BY_LABEL.get(label);
+    }
+
+    public static Day valueOfNumber(int number) {
+      return BY_NUMBER.get(number);
+    }
+  }
 
   public static void main(String[] args) {
     for (Seasons S: Seasons.values()) {
@@ -40,5 +85,11 @@ public class PrEnum {
       default:
         System.out.println('밤');
     }
+
+    System.out.println(Arrays.toString(Day.values())); // [MON, TUE, WED, THU, FRI, SAT, SUN]
+    System.out.println(Day.MON); // MON
+    System.out.println(Day.MON.name()); // MON
+    System.out.println(Day.MON.label()); // Monday
+    System.out.println(Day.MON.number()); // 10
   }
 }

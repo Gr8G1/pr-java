@@ -22,7 +22,7 @@ public class PrGeneric {
    *  - <? extends T>: 상한 제한 -> T 자신을 포함한 상속받는 하위 클래스 타입만 허용 (Upper-bound)
    *  - <? super T>: 하한 제한 -> T 자신을 포함한 상위 클래스 타입만 허용 (Lower-bound)
    *  - <?>: 모든 타입 허용 (<? extneds Object> 와 같다)
-   *  - ! 주의: interface의 구현도 extends를 사용한다 (implements X)
+   *  - ! 주의: interface의 구현체는 extends를 사용한다 (implements X)
    *
    * 제네릭 타입 컨벤션
    *  - E: Element

@@ -142,4 +142,45 @@ public class PrRESTAPI {
    *  > 멱등 사전적 정의: 연산을 여러 번 적용하더라도 결과가 달라지지 않는 성질을 의미
    *
    */
+
+  /*
+   * # HTTP Method 특징
+   *
+   * # GET(Request has body: N)
+   * - 특정 리소스의 표시를 요청합니다. GET을 사용하는 요청은 오직 데이터를 받기만 한다.
+   *  > GET 요청에 본문이나 페이로드가 담겨있으면 명세에는 금지되어있지 않지만, 의미가 정의되지 않아 기존에 존재하는
+   *    구현체에게 요청을 거부당할수 있다. 이러한 이유로 GET 요청에는 본문이나 페이로드를 담지 않는 것을 권장한다.
+   *  > 정의: https://developer.mozilla.org/ko/docs/Web/HTTP/Methods/GET
+   * # HEAD(Request has body: N)
+   *  - GET 메서드의 요청과 동일한 응답을 요구하지만, 응답 본문을 포함하지 않는다.
+   *  > 정의: https://developer.mozilla.org/ko/docs/Web/HTTP/Methods/HEAD
+   * # POST(Request has body: Y)
+   *  - POST 메서드는 특정 리소스에 엔티티를 제출할 때 쓰입니다. 이는 종종 서버의 상태의 변화나 부작용을 일으킨다.
+   *  - 보통 HTML 양식을 통해 서버에 전송
+   *    이떄 콘텐츠 유형(Content-Type)은 *<form> 요소의 enctype 특성이나 <input>, <button> *요소의 formenctype 특성 안에 적당한 문자열을 넣어 결정
+   *  > 정의: https://developer.mozilla.org/ko/docs/Web/HTTP/Methods/POST
+   * # PUT(Request has body: Y)
+   *  - 요청 페이로드를 사용해 새로운 리소스를 생성하거나, 대상 리소스를 나타내는 데이터를 대체한다.
+   *  > 정의: https://developer.mozilla.org/ko/docs/Web/HTTP/Methods/PUT
+   * # DELETE(Request has body: May)
+   *  - DELETE 메서드는 특정 리소스를 삭제한다.
+   *  > 정의: https://developer.mozilla.org/ko/docs/Web/HTTP/Methods/DELETE
+   * # CONNECT(Request has body: N)
+   *  - CONNECT 메서드는 목적 리소스로 식별되는 서버로의 터널을 맺습니다.
+   *  > 정의: https://developer.mozilla.org/ko/docs/Web/HTTP/Methods/CONNECT
+   * # OPTIONS(Request has body: N)
+   *  - 목적 리소스의 통신을 설정하는 데 쓰입니다.
+   *  > 정의: https://developer.mozilla.org/ko/docs/Web/HTTP/Methods/OPTIONS
+   * # TRACE (en-US) (Request has body: N)
+   *  - 목적 리소스의 경로를 따라 메시지 loop-back 테스트를 합니다.
+   *  > 정의: https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/TRACE
+   * # PATCH(Request has body: Y)
+   *  - 리소스의 부분만을 수정하는 데 쓰인다.
+   *    > 정의: https://developer.mozilla.org/ko/docs/Web/HTTP/Methods/PATCH
+   *
+   * # PUT vs POST
+   *  - PUT과 POST의 차이는 멱등성으로, PUT은 멱등성을 가진다. 즉, 부수 효과(side effect)가 없다.
+   *
+   *
+   */
 }
