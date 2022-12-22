@@ -54,6 +54,8 @@ public class PrThread {
    *    - notifyAll: Waiting-pool 대기중인 Thread를 모두 깨운다.
    *      > Waiting-pool은 객체마다 존재하므로 notifyAll을 호출해도 모든 Thread에게 통보되는것은 아니다.
    *
+   * TODO: Thread 동시성 문제 정리
+   *
    */
 
   public static void main(String[] args) {

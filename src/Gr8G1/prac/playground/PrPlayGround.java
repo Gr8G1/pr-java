@@ -282,17 +282,14 @@ public class PrPlayGround {
     return y;
   }
 
-  public static int pow(int n, int p) {
+  public static long pow(int n, int p) {
     if (p == 0) return 1;
 
-    int t = pow(n, p / 2);
-    int v = t * t;
+    long t = pow(n, p / 2);
+    long v = (t * t) % 94_906_249;
 
-    if (p % 2 == 0) { // 짝수
-      return v;
-    } else {          // 홀수
-      return n * v;
-    }
+    if (p % 2 == 0) return v;
+    else return (n * v) % 94_906_249;
   }
 
   public static boolean po2(int n) {
@@ -620,7 +617,10 @@ public class PrPlayGround {
     // System.out.println(largestProductOfThree(new int[] {-50, -20, -30, -5, 40}));
     // System.out.println(largestProductOfThree(new int[] {2, 3, -11, 7, 5, -13}));
     // System.out.println(fibonacci(7));
-    System.out.println(isSubsetOf(new int[] {1, 2, 3, 4, 5}, new int[] {3}));
+    // System.out.println(isSubsetOf(new int[] {1, 2, 3, 4, 5}, new int[] {3}));
+    System.out.println(pow(5, 22));
+    System.out.println(Math.pow(5, 22) / 94_906_249);
+    System.out.println(2384185791015625L / 94_906_249);
 
     // # 구현
     // 보드게임

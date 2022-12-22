@@ -98,7 +98,7 @@ public class PrMVC {
    *
    * @ResponseBody
    *  - JSON 형식의 Response Body를 클라이언트에게 전달하기 위해 DTO 클래스의 객체를 Response Body로 변환하는 역할을 한다.
-   *    > 내부적으로 HttpMessageConverter 를 통해 Response Body 형식으로 변경된다.
+   *    > 내부적으로 HttpMessageConverter 를 통해 Response Body(JSON) 형식으로 변경된다.
    *
    * @PathVariable
    *  - @RequestMapping URI 템플릿 패턴 형식으로 지정된 변수의 접근하여 인수(Parameter - 바인딩 된 정보)로 받을 수 있다.
@@ -121,7 +121,10 @@ public class PrMVC {
    *  - @Component를 포함한 애너테이션 (역할과 책임 분리에 따른 정형화된 네이밍룰 스프링 계층 구조와 밀접한 연관이 있다))
    *
    * @ExceptionHandler
-   *  - @Controller, @ControllerAdvice에서의 예외처리 애너테이션
+   *  - 전략에 따라 사용 (지역범위, 전역범위) 예외 처리를 지정할 수 있다.
+   *  - @[Rest]Controller, @[Rest]ControllerAdvice 함께 사용 가능
+   *  - BusinessLogic 핸들링 @ResponseStatus와 함께 사용
+   *
    *
    *
    */

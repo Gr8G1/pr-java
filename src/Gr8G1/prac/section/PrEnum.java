@@ -21,6 +21,9 @@ public class PrEnum {
    * 열거형의 비교
    *  - == | compareTo 사용 (비교 연사자 사용 불가)
    *
+   * 열거형이 활용
+   *
+   *
    */
   enum Seasons {SPRING, SUMMER, FALL, WINTER};
 

@@ -65,7 +65,6 @@ public class PrSpring {
    *
    *  > 의존관계 증명: 대상 B가 변하여, 그것이 A에 영향을 미칠때 의존관계라 한다.
    *
-   *
    * # AOP(Aspect Oriented Programming, 관점 지향 프로그래밍)
    *  - 어떤 로직을 기준으로 핵심적인 관점, 부가적인 관점으로 나누어서 보고 그 관점을 기준으로 각각 모듈화하는 프로그래밍 기법
    *    객체지향프로그래밍 서로 나란히 하는, 상호 보완관계에 있는 기술이다.
@@ -97,6 +96,14 @@ public class PrSpring {
    * # 아파치 톰캣(Apache Tomcat)
    *  - 아파치 소프트웨어 재단에서 개발한 *서블릿 컨테이너*(또는 웹 컨테이너)만 있는 웹 애플리케이션 서버이다.
    *    톰캣은 웹 서버와 연동하여 실행할 수 있는 자바 환경을 제공하여 JSP와 자바 서블릿이 실행할 수 있는 환경을 제공하고 있다.
+   *
+   * # Persistence(영속, 지속) Framework
+   *  1. SQL Mapper
+   *    - 객체와 SQL을 매핑한다. (단순 필드 매핑이 목적)
+   *    - 개발자가 SQL 을 작성해서 직접 DB를 조작
+   *      > Ex: iBatis, MyBatis
+   *  2. ORM (Object-Relational Mappering)
+   *    - 아래 내용 참조
    *
    * # ORM(Object Relational Mapping, 객체-관계 매핑)
    *  - 객체와 관계형 데이터베이스의 데이터를 자동으로 매핑(연결)해주는 것을 말한다.
