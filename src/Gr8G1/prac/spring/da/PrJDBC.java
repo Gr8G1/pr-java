@@ -36,6 +36,42 @@ public class PrJDBC {
    *
    * # Spring Data JDBC
    *
+   * # interface CrudRepository<T, ID>
+   *  - Spring Data에서 제공하는 CRUD 편의 제공 인터페이스
+   *    - public interface Repository extends CrudRepository<T, ID> {..}
+   *      > save()
+   *        - @Id 대응값이 0 또는 null이면 신규 데이터라고 판단 insert 쿼리를 전송
+   *        - @Id 대응값이 0 또는 null아니면 기존 데이터라고 판단 update 쿼리를 전송
+   *
+   * # interface PagingAndSortingRepository<T, ID>
+   *  - Spring Data에서 제공하는 Paging & Sorting CrudRepository 확장 인터페이스
+   *    - public interface Repository extends PagingAndSortingRepository<T, ID> {..}
+   *      > findAll(page, size, sort)
+   *        - 특정 필드명 기준 정렬시: Sort.by("filedsName").ascending() / descending
+   *
+   *
+   * # 쿼리 메서드(Query Method)
+   *    - find + By + SQL 쿼리문에서 WHERE 절의 컬럼명 + (WHERE 절 컬럼의 조건이 되는 데이터)
+   *    - WHERE 절 여러 컬럼 지정시 지정시 And를 붙인다.
+   *
+   * # Annotations
+   *  - @Table
+   *    - @Table 애너테이션이 선언되지 않는다면 기본적으로 클래스(Enttity)명을 테이블 이름과 매핑한다.
+   *  - @Id
+   *    - 기본키(Primary key) 정의
+   *  - @Cloumn
+   *    - 컬럼명 정의
+   *  - @MappedCollection(idColumn = "", keyColumn = "")
+   *    - 애그리거트 객체 매핑 규칙2에 따라 아래와 같이 정의
+   *      - idColumn: 자식 테이블에 추가되는 외래키에 해당되는 컬럼명을 지정
+   *      - keyColumn: 외래키를 포함하고 있는 테이블의 기본키 컬럼명을 지정
+   *    > 동일한 애그리거트 내에서 엔티티간 참조는 객체 참조로 정의한다.
+   *
+   *    - 애그리거트 객체 매핑 규칙3에 따라 아래와 같이 정의
+   *      - private AggregateReference<Entity, Long> PK
+   *    > 애그리거트 루트 via 애그리거트 루트 참조시
+   *  - @Query("SELECT * FROM COFFEE WHERE ID = :Id")
+   *    - CRUD 인터페이스 구현시 쿼리문 직접 정의에 사용
    *
    */
 }

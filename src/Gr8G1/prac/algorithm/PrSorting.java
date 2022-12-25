@@ -3,6 +3,11 @@ package Gr8G1.prac.algorithm;
 import java.util.Arrays;
 
 public class PrSorting {
+  /*
+   * # 정렬 알고리즘
+   *  -
+   *
+   */
   public static int[] bubbleSortBasic(int[] arr) {
     int n = arr.length - 1;
 

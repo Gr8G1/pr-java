@@ -618,9 +618,7 @@ public class PrPlayGround {
     // System.out.println(largestProductOfThree(new int[] {2, 3, -11, 7, 5, -13}));
     // System.out.println(fibonacci(7));
     // System.out.println(isSubsetOf(new int[] {1, 2, 3, 4, 5}, new int[] {3}));
-    System.out.println(pow(5, 22));
-    System.out.println(Math.pow(5, 22) / 94_906_249);
-    System.out.println(2384185791015625L / 94_906_249);
+    // System.out.println(pow(5, 22));
 
     // # 구현
     // 보드게임
