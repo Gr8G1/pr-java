@@ -53,6 +53,7 @@ public class PrJDBC {
    * # 쿼리 메서드(Query Method)
    *    - find + By + SQL 쿼리문에서 WHERE 절의 컬럼명 + (WHERE 절 컬럼의 조건이 되는 데이터)
    *    - WHERE 절 여러 컬럼 지정시 지정시 And를 붙인다.
+   *      > 예) find[:All]By[:OrderBy](Target)[:ASC, Desc](Pageable pagaeble)
    *
    * # Annotations
    *  - @Table

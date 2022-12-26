@@ -53,9 +53,9 @@ public class PrGreddy {
     }
 
     return boxCount;
-}
+  }
 
-// 거스름돈 계산
+  // 거스름돈 계산
   public static int partTimeJob(int k) {
     int[] unit = {500, 100, 50, 10, 5, 1};
     int unitCount = 0;

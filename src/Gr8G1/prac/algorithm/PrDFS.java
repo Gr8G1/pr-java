@@ -1,8 +1,6 @@
 package Gr8G1.prac.algorithm;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Optional;
 
 public class PrDFS {
   static ArrayList<String> lists = new ArrayList<>();
