@@ -575,6 +575,72 @@ public class PrPlayGround {
         .containsAll(Arrays.stream(sample).boxed().collect(Collectors.toList()));
   }
 
+  // const stack = [];
+  // const map = new Map([
+  //   [")","("],
+  //   ["}","{"],
+  //   ["]","["]
+  // ]);
+  //
+  // for (let char of s) {
+  //  if (!map.has(char)) stack.push(char);
+  //  else {
+  //   if (stack.length !== 0 || map.get(char) !== stack.pop()) return false;
+  //  }
+  //
+  //
+  // return stack.length === 0;
+
+  public static boolean balancedBrackets(String str) {
+    int i = "]})".indexOf(str);
+
+    System.out.println(i);
+
+    HashMap<Character, Character> cMap = new HashMap<>() {{
+      put(']', '[');
+      put('}', '{');
+      put(')', '(');
+    }};
+    Stack<Character> s = new Stack<>();
+
+    for (Character c : str.toCharArray()) {
+      if (!cMap.containsKey(c)) s.push(c);
+      else if (s.size() == 0 && cMap.containsKey(c)) return false;
+      else if (s.size() != 0 && cMap.get(c) != s.pop()) return false;
+    }
+
+    return s.size() == 0;
+  }
+
+  // Dynamic Programming
+  public static int tiling(int num) {
+    // Top Down
+    Integer[] dp = new Integer[num + 1];
+
+    if (num <= 2) return num;
+    if (dp[num] != null) return dp[num];
+
+    dp[num] = tiling(num - 1) + tiling(num - 2);
+    System.out.println("Arrays.toString(dp) = " + Arrays.toString(dp));
+
+    return dp[num];
+
+    // Bottom Up
+    // if (num <= 1) return 1;
+    //
+    // int[] dp = new int[num + 1];
+    //
+    // dp[0] = 1;
+    // dp[1] = 1;
+    //
+    // for (int i = 2; i < dp.length; i++) {
+    //   dp[i] = dp[i - 1] + dp[i - 2];
+    //   System.out.println("Arrays.toString(dp) = " + Arrays.toString(dp));
+    // }
+    //
+    // return dp[num];
+  }
+
   public static void main(String[] args) {
     // # HashMap 초기화
     // System.out.println(
@@ -619,6 +685,8 @@ public class PrPlayGround {
     // System.out.println(fibonacci(7));
     // System.out.println(isSubsetOf(new int[] {1, 2, 3, 4, 5}, new int[] {3}));
     // System.out.println(pow(5, 22));
+    // System.out.println(balancedBrackets("[][][]()()(){}{}{}"));
+    System.out.println(tiling(5));
 
     // # 구현
     // 보드게임

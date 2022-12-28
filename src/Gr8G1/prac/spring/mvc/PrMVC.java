@@ -73,7 +73,7 @@ public class PrMVC {
    */
 
   /*
-   * # MVC Annotations
+   * # Annotations
    * @RequestMapping
    *  - 클래스 레벨 Annotation 으로 핸들러의 역할을 하며 URL을 맵핑한다. 특정 HTTP Request Method("GET", "POST" 등)에 대한 기본 매핑을 좁히는 추가 메서드 레벨 Annotation과 함께 사용된다.
    *  - URI 템플릿 패턴 적용 가능
@@ -125,8 +125,6 @@ public class PrMVC {
    *  - @[Rest]Controller, @[Rest]ControllerAdvice 함께 사용 가능
    *  - BusinessLogic 핸들링 @ResponseStatus와 함께 사용
    *
-   *
-   *
    */
 
   /*
@@ -175,7 +173,7 @@ public class PrMVC {
    *  ~ pr-spring 프로젝트 : java/Gr8G1/prac/section/rest/RestClientTemplate.java 참고
    *
    * # WebClient
-   *  - TODO: WebClient학습 진행 예정
+   *  - TODO: WebClient 학습 진행 예정
    *
    *
    */

@@ -107,7 +107,7 @@ public class PrSpring {
    *
    * # ORM(Object Relational Mapping, 객체-관계 매핑)
    *  - 객체와 관계형 데이터베이스의 데이터를 자동으로 매핑(연결)해주는 것을 말한다.
-   *    ORM을 통해 객체 간의 관계를 바탕으로 SQL을 자동으로 생성하여 불일치를 해결하기 위한 목적으로 사용한다.
+   *    ORM을 통해 객체 간의 관계를 바탕으로 SQL을 자동으로 생성하여 패러다임 불일치를 해결하기 위한 목적으로 사용한다.
    *
    * # OXM (Object/XML Mapping)
    *  - Object와 XML간의 변환을 위해서XML Marshalling 기술을 추상화한 기능으로
