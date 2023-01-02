@@ -35,16 +35,6 @@ public class PrMathWith {
     System.out.println();
   }
 
-  public static void permRe(int[] arr, int n, int r) {
-    // Permutation with repetition(nΠr) = n^r
-    // int i = 0;
-    // int t = n;
-    // while (++i < r) t *= t;
-    System.out.printf("Pwr: %s, Pi(%d, %d) = %d%n", Arrays.toString(arr), n, r, (int) Math.pow(n, r));
-    getPermuRe(0, r, arr, new int[r]);
-    System.out.println();
-  }
-
   public static void getPermu(int start, int r, int[] arr, int[] result, boolean[] visited) {
     if (start == r) {
       System.out.print(Arrays.toString(result) + " ");
@@ -59,6 +49,16 @@ public class PrMathWith {
         visited[i] = false;
       }
     }
+  }
+
+  public static void permRe(int[] arr, int n, int r) {
+    // Permutation with repetition(nΠr) = n^r
+    // int i = 0;
+    // int t = n;
+    // while (++i < r) t *= t;
+    System.out.printf("Pwr: %s, Pi(%d, %d) = %d%n", Arrays.toString(arr), n, r, (int) Math.pow(n, r));
+    getPermuRe(0, r, arr, new int[r]);
+    System.out.println();
   }
 
   public static void getPermuRe(int start, int r, int[] arr, int[] result) {
@@ -86,15 +86,6 @@ public class PrMathWith {
     System.out.println();
   }
 
-  public static void combiRe(int[] arr, int n, int r) {
-    // Combination with repetition = ((n - 1 + r)Cr || (n + r - 1)Cr
-    // Combination = n! / (r! * (n - r)!)
-
-    System.out.printf("Cwr: %s, C(%d, %d) = %d%n", Arrays.toString(arr), n, r, fact((n - 1) + r) / (fact(r) * fact((n + r - 1) - r)));
-    getCombiRe(0, 0, r, arr, new int[r]);
-    System.out.println();
-  }
-
   public static void getCombi(int start, int depth, int r, int[] arr, int[] result, boolean[] visited) {
     if (depth == r) {
       System.out.print(Arrays.toString(result) + " ");
@@ -111,6 +102,15 @@ public class PrMathWith {
     }
   }
 
+  public static void combiRe(int[] arr, int n, int r) {
+    // Combination with repetition = ((n - 1 + r)Cr || (n + r - 1)Cr
+    // Combination = n! / (r! * (n - r)!)
+
+    System.out.printf("Cwr: %s, C(%d, %d) = %d%n", Arrays.toString(arr), n, r, fact((n - 1) + r) / (fact(r) * fact((n + r - 1) - r)));
+    getCombiRe(0, 0, r, arr, new int[r]);
+    System.out.println();
+  }
+
   public static void getCombiRe(int start, int depth, int r, int[] arr, int[] result) {
     if (depth == r) {
       System.out.print(Arrays.toString(result) + " ");
@@ -125,7 +125,7 @@ public class PrMathWith {
 
   public static void main(String[] args) {
     permu(new int[] {1, 2, 3}, 3, 2);
-    permRe(new int[] {1, 2, 3}, 3, 2);
+    permRe(new int[] {1, 2, 3}, 3, 3);
     System.out.println();
     combi(new int[] {1, 2, 3}, 3, 2);
     combiRe(new int[] {1, 2, 3}, 3, 2);

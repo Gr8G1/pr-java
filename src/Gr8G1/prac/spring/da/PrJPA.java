@@ -117,6 +117,19 @@ public class PrJPA {
    *        inversejoinColumns = @JoinColumn(name = "Inverse_Join_PK")
    *      )
    *
+   * # 영속성 전이(CascadeType)
+   *  - CascadeType.ALL
+   *    - 상위 엔터티에서 하위 엔터티로 모든 작업을 전파
+   *  - CascadeType.PERSIST
+   *    - 하위 엔티티까지 영속성 전달
+   *  - CascadeType.MERGE
+   *    - 하위 엔티티까지 병합 작업을 지속
+   *  - CascadeType.REMOVE
+   *    - 하위 엔티티까지 제거 작업을 지속
+   *  - CascadeType.REFRESH
+   *    - 데이터베이스로부터 인스턴스 값을 다시 읽어 오기(새로고침) (연결된 하위 엔티티까지 전이)
+   *  - CascadeType.DETACH
+   *    - 영속성 컨텍스트에서 엔티티 제거 (연결된 하위 엔티티까지)
    */
 
   /*
@@ -214,6 +227,42 @@ public class PrJPA {
    *    - 데이터베이스 테이블에 영향을 미치지 않는다.
    *    - 조회, 검색 불가(em.find(BaseEntity) 불가)
    *    - 직접 생성해서 사용할 일이 없으므로 추상 클래스 권장
+   *
+   *  - @Inheritance
+   *
+   *  - @Transactional
+   *      > 클래스, 메소드 트랜잭션 선언
+   *      - readOnly (Default = false)
+   *        - 읽기 전용 속성으로 변경 (1차 캐시(영속성 컨텍스트) 저장 X, 스냅샷 생성 X - *자동 성능 최적화* 고려사항)
+   *      - propagation (Default = Propagation.REQUIRED)
+   *          > 트랜잭션이 이미 존재할 시 (일련의 흐름안에서) 동일 트랜잭션에 참여 여부를 결정한다.
+   *          - Propagation.REQUIRED
+   *             - 이미 진행중인 트랜잭션이 없으면 새로운 트랜잭션을 시작하고, 진행 중인 트랜잭션이 있으면 해당 트랜잭션에 참여한다.
+   *          - Propagation.REQUIRES_NEW
+   *            - 이미 진행중인 트랜잭션과 무관하게 새로운 트랜잭션을 시작한다.
+   *              기존에 진행중인 트랜잭션은 새로 시작된 트랜잭션이 종료할 때까지 중지된다.
+   *          - Propagation.MANDATORY
+   *            - 진행 중인 트랜잭션이 없으면 예외를 발생시킨다.
+   *          - Propagation.*NOT_SUPPORTED* (메소드 레벨)
+   *            - 트랜잭션을 필요로 하지 않음을 의미
+   *              진행 중인 트랜잭션이 있으면 메서드 실행이 종료될 때 까지 진행중인 트랜잭션은 중지되며,
+   *              메서드 실행이 종료되면 트랜잭션을 계속 진행한다.
+   *          - Propagation.*NEVER*
+   *            - 트랜잭션을 필요로 하지 않음을 의미
+   *              진행 중인 트랜잭션이 존재할 경우에는 예외를 발생시킨다.
+   *        -  isolation (Default = Isolation.DEFAULT)
+   *            > 트랜잭션의 격리성 보장
+   *            - Isolation.READ_UNCOMMITTED
+   *              - 다른 트랜잭션에서 커밋하지 않은 데이터를 읽는 것을 허용
+   *            - Isolation.READ_COMMITTED
+   *              - 다른 트랜잭션에 의해 커밋된 데이터를 읽는 것을 허용
+   *            - Isolation.REPEATABLE_READ
+   *              - 트랜잭션 내에서 한 번 조회한 데이터를 반복해서 조회해도 같은 데이터가 조회되도록 한다.
+   *            - Isolation.SERIALIZABLE
+   *              - 동일한 데이터에 대해서 동시에 두 개 이상의 트랜잭션이 수행되지 못하도록 막는다.
+   *
+   *  - @Query("select c from ClassType (as?) c where c.Id = :Id")
+   *    - CRUD 인터페이스 구현시 쿼리문 직접 정의에 사용
    *
    * # 예외 처리
    *  ! Entity 에서 전파된 예외 던지기는 API 계층까지 전파되므로 API 계층의 GlobalExceptionAdvice 에서 캐치(catch)한 후, 처리할 수 있다

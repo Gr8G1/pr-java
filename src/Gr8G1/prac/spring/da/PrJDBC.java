@@ -72,7 +72,7 @@ public class PrJDBC {
    *    - 애그리거트 객체 매핑 규칙3에 따라 아래와 같이 정의
    *      - private AggregateReference<Entity, Long> PK
    *    > 애그리거트 루트 via 애그리거트 루트 참조시
-   *  - @Query("SELECT * FROM COFFEE WHERE ID = :Id")
+   *  - @Query("select c from ClassType (as?) c where c.Id = :Id")
    *    - CRUD 인터페이스 구현시 쿼리문 직접 정의에 사용
    *
    */
