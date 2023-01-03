@@ -721,7 +721,67 @@ public class PrPlayGround {
         return pos;
     }
 
-    public static void main(String[] args) {
+    // BFS Short Path
+
+
+    public static int robotPath(int[][] room, int[] src, int[] dst) {
+        class Pointer {
+            private final int row;
+            private final int col;
+            private final int dis;
+
+            public Pointer(int row, int col, int dis) {
+                this.row = row;
+                this.col = col;
+                this.dis = dis;
+            }
+
+            public int getRow() {
+                return row;
+            }
+
+            public int getCol() {
+                return col;
+            }
+
+            public int getDis() {
+                return dis;
+            }
+        }
+
+        final int MAX_R = room.length;
+        final int MAX_C = room[0].length;
+        boolean[][] visited = new boolean[MAX_R][MAX_C];
+        int[][] dir = new int[][] {{-1 ,0}, {1, 0}, {0, -1}, {0, 1}}; // 상, 하, 좌, 우
+
+        Queue<Pointer> q = new LinkedList<>();
+        // 출발 위치 지정
+        q.add(new Pointer(src[0], src[1], 0));
+        // 방문(출발) 위치 확인
+        visited[src[0]][src[1]] = true;
+
+        while (!q.isEmpty()) {
+            Pointer cur = q.poll();
+
+            if (cur.getRow() == dst[0] && cur.getCol() == dst[1]) return cur.getDis();
+
+            for (int i = 0; i < 4; i++) {
+                int nR = cur.getRow() + dir[i][0];
+                int nC = cur.getCol() + dir[i][1];
+
+                if (nR < 0 || nR > MAX_R - 1 || nC < 0 || nC > MAX_C - 1) continue;
+                if (visited[nR][nC]) continue;
+                if (room[nR][nC] != 0) continue;
+
+                visited[nR][nC] = true;
+                q.add(new Pointer(nR, nC, cur.getDis() + 1));
+            }
+        }
+
+        return - 1;
+    }
+
+   public static void main(String[] args) {
         // # HashMap 초기화
         // System.out.println(
         //   new HashMap<String, String>() {{
@@ -772,7 +832,18 @@ public class PrPlayGround {
         // System.out.println(Arrays.toString(powerSet("abc").toArray()));
         // System.out.println(Arrays.toString(powerSet("bac").toArray()));
 
-        System.out.println(orderOfPresentation(3, new int[] {3, 1, 2}));
+        // System.out.println(orderOfPresentation(3, new int[] {3, 1, 2}));
+
+        int[][] room = new int[][] {
+          {0, 0, 0, 0, 0, 0},
+          {0, 1, 1, 0, 1, 0},
+          {0, 1, 0, 0, 0, 0},
+          {0, 0, 1, 1, 1, 0},
+          {1, 0, 0, 0, 0, 0}
+        };
+        int[] src = new int[]{0, 0};
+        int[] dst = new int[]{2, 2};
+        System.out.println(robotPath(room, src, dst));
 
         // # 구현
         // 보드게임
